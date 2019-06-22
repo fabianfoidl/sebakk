@@ -1,0 +1,14 @@
+<controllibraries>
+    <controllibrary prefix="x" 
+                    tldfilename="xxx.tld"
+                    packagename="xxx.xxx.xxx"
+                    uri="/WEB-INF/xxx"/>
+</controllibraries>
+
+<!--
+Registration of control libraries. Registration is required in case
+of own controls that are based on CaptainCasa controls. Information
+is both required at runtime and at design time.
+
+Find detailed information within the Developers' Guide.
+-->

@@ -1,0 +1,97 @@
+<literals>
+    <monthName text="januar"/>
+    <monthName text="februar"/>
+    <monthName text="mars"/>
+    <monthName text="april"/>
+    <monthName text="mai"/>
+    <monthName text="juni"/>
+    <monthName text="juli"/>
+    <monthName text="august"/>
+    <monthName text="september"/>
+    <monthName text="oktober"/>
+    <monthName text="november"/>
+    <monthName text="december"/>
+    <weekdayNameShort text="man"/>
+    <weekdayNameShort text="tir"/>
+    <weekdayNameShort text="ons"/>
+    <weekdayNameShort text="tor"/>
+    <weekdayNameShort text="fre"/>
+    <weekdayNameShort text="lør"/>
+    <weekdayNameShort text="søn"/>
+    <literal id="alt" text="Alt"/>
+    <literal id="color_blue" text="Blå"/>
+    <literal id="color_green" text="Grøn"/>
+    <literal id="color_hexcode" text="Hexadecimal kode"/>
+    <literal id="color_palette" text="Fargepalett"/>
+    <literal id="color_red" text="Rød"/>
+    <literal id="color_rgb" text="RGB"/>
+    <literal id="confirmExit" text="Vil du virkelig forlate applikasjonen?"/>
+    <literal id="controlButton" text="Knapp"/>
+    <literal id="controlButton_selected" text="aktiv"/>
+    <literal id="controlButton_unselected" text="inaktiv"/>
+    <literal id="controlCheckBox" text="Utvalg"/>
+    <literal id="controlCheckBoxValue_false" text="fra"/>
+    <literal id="controlCheckBoxValue_true" text="til"/>
+    <literal id="controlCheckBoxValue_undefined" text="ikke satt"/>
+    <literal id="controlField" text="Felt"/>
+    <literal id="controlFieldFormat_color" text="Farge"/>
+    <literal id="controlFieldFormat_date" text="Dato"/>
+    <literal id="controlFieldFormat_datetime" text="Dato og tid"/>
+    <literal id="controlFieldFormat_decimal" text="Tall"/>
+    <literal id="controlFieldFormat_integer" text="Heltall"/>
+    <literal id="controlFieldFormat_time" text="Tid"/>
+    <literal id="controlHeaderLabel" text="Kolonnetittel"/>
+    <literal id="controlHeaderLabel_sort_ascending" text="Sortere fra minste til største"/>
+    <literal id="controlHeaderLabel_sort_descending" text="Sortere fra største til minste"/>
+    <literal id="controlLabel" text="Tekst"/>
+    <literal id="controlOutlookbarButton" text="Utvalg"/>
+    <literal id="controlProgressBar" text=" Fremdriftsindikator"/>
+    <literal id="controlRadioButton" text="Flervalg"/>
+    <literal id="controlRadioButtonValue_false" text="fra"/>
+    <literal id="controlRadioButtonValue_true" text="til"/>
+    <literal id="controlSingleTreeNode" text="Node"/>
+    <literal id="controlSingleTreeNodeLevel" text="Nivå"/>
+    <literal id="controlSingleTreeNodeStatus0" text="åpen"/>
+    <literal id="controlSingleTreeNodeStatus1" text="lukket"/>
+    <literal id="controlSingleTreeNodeStatus2" text="Sluttnode"/>
+    <literal id="controlSlider" text="Glidebryter"/>
+    <literal id="controlSlider_max" text="max"/>
+    <literal id="controlSlider_min" text="min"/>
+    <literal id="controlTabbedLineButton" text="Områdes utvalg"/>
+    <literal id="copyToClipboard" text="Kopier innholdet til utklippstavlen med CTRL+C."/>
+    <literal id="copyToClipboardTitle" text="Kopier innholdet til utklippstavlen"/>
+    <literal id="ctrl" text="Ctrl"/>
+    <literal id="filechooser_cancel" text="Avbryt"/>
+    <literal id="filechooser_clear" text="Tøm liste"/>
+    <literal id="filechooser_clearFile" text="Ta bort"/>
+    <literal id="filechooser_selectFiles" text="Velg fil..."/>
+    <literal id="filechooser_selectedFiles" text="Valgte filer:"/>
+    <literal id="filechooser_upload" text="Last opp"/>
+    <literal id="fileupload_cancel" text="Avbryt"/>
+    <literal id="fileupload_clear" text="Tøm liste"/>
+    <literal id="fileupload_clearFile" text="Fjern fil"/>
+    <literal id="fileupload_maxfilesize" text="Opplstningen overskrider maksimal størrelse (${value} kB)."/>
+    <literal id="fileupload_maxnumberoffiles" text="Antall filer overskrider tillatt antall (${value} kB)."/>
+    <literal id="fileupload_maxsinglefilesize" text="Filstørrelsen overskrider maksimal størrelse (${value} kB)."/>
+    <literal id="fileupload_selectFiles" text="Velg fil..."/>
+    <literal id="fileupload_selectedFiles" text="Valgte filer:"/>
+    <literal id="fileupload_upload" text="Send til server"/>
+    <literal id="fileupload_extensiondoesnotmatch" text="Extension does not match"/>
+    <literal id="formatAdviceDay" text="dd"/>
+    <literal id="formatAdviceHour" text="hh"/>
+    <literal id="formatAdviceMinute" text="mm"/>
+    <literal id="formatAdviceMonth" text="mm"/>
+    <literal id="formatAdviceSecond" text="ss"/>
+    <literal id="formatAdviceYear" text="yyyy"/>
+    <literal id="hintFromIncorrectValueReset" text="Den minste tilatte verdien er: "/>
+    <literal id="hintIncorrectValueReset" text="Innmatningsformatet er: &#34;${format}&#34;"/>
+    <literal id="hintToIncorrectValueReset" text="Den største tilatte verdien er: "/>
+    <literal id="messageIncorrectValue" text="Ugyldig verdi &#34;${value}&#34; - vennligst kontroller innmatingen."/>
+    <literal id="messageIncorrectValueReset" text="Ugyldig verdi &#34;${value}&#34; - verdien tilbakestilles til sin opprinnelige verdi."/>
+    <literal id="ok" text="OK"/>
+    <literal id="selectFiles" text="Velg filer å sende…"/>
+    <literal id="shift" text="Shift"/>
+    <literal id="today" text="I dag"/>
+    <literal id="todayShort" text="I dag"/>
+    <literal id="zzzzz" text="zzzzz"/>
+</literals>

@@ -1,0 +1,25 @@
+<sessiondefaults 
+    style="default"
+    language="en"
+    country="US"
+    takeoverclientlocalesettings="false"
+/>
+
+<!--
+Defaults which are used for the Enterprise Client JSF Server sessions.
+    
+style: (optional) style of the styles directory which is applied by default.
+The styles directory is the /eclntjsfserver/styles directory.
+
+language: default language that is used on server side
+Example values: en, de, ...
+
+country: default country settings that are used on server side
+Example values: DE, US, FR, ...
+
+takeoverclientlocalesettings: false (default)/true
+If set to true then the client locale settings will be taken over into
+the server side locale settings. This does not only happen the first time
+the session is created, but is regularly done with every request that
+comes to the server side.
+-->

@@ -1,0 +1,18 @@
+<onlinehelp contentdirectory="/onlinehelp/"
+            onlinehelpprocessor="org.eclnt.jsfserver.onlinehelp.defaultimpl.OnlineHelpProcessorJBrowser"
+            popupwidth="400"
+            popupheight="300"
+</onlinehelp>
+
+<!--
+Configuration of online help
+
+contentdirectory: name of the directory inside your web application, in which
+the online help files are kept.
+
+onlinehelprocessor: name of the classes to plug to an own online help
+framework
+
+popupwidth: size of popup that is opended for showing online help
+popupheight: size of popup that is opended for showing online help
+-->

@@ -1,0 +1,3 @@
+<style extends="defaultrisc" >
+    <stylevalue name="ccWorkplaceIntroButtonColor" value="#126390"/>
+</style>

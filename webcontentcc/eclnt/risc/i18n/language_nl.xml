@@ -1,0 +1,68 @@
+<literals>
+    <monthName text="januari"/>
+    <monthName text="februari"/>
+    <monthName text="maart"/>
+    <monthName text="april"/>
+    <monthName text="mei"/>
+    <monthName text="juni"/>
+    <monthName text="juli"/>
+    <monthName text="augustus"/>
+    <monthName text="september"/>
+    <monthName text="oktober"/>
+    <monthName text="november"/>
+    <monthName text="december"/>
+    <weekdayNameShort text="ma"/>
+    <weekdayNameShort text="di"/>
+    <weekdayNameShort text="wo"/>
+    <weekdayNameShort text="do"/>
+    <weekdayNameShort text="vr"/>
+    <weekdayNameShort text="za"/>
+    <weekdayNameShort text="zo"/>
+    <literal id="alt" text="Alt"/>
+    <literal id="color_blue" text="Blauw"/>
+    <literal id="color_green" text="Groen"/>
+    <literal id="color_hexcode" text="Hex code"/>
+    <literal id="color_palette" text="Palette"/>
+    <literal id="color_red" text="Rood"/>
+    <literal id="color_rgb" text="RGB"/>
+    <literal id="confirmExit" text="Wilt u de applicatie afsluiten?"/>
+    <literal id="controlButton" text="Knop"/>
+    <literal id="controlSingleTreeNode" text="Tree node"/>
+    <literal id="controlSingleTreeNodeLevel" text="Niveau"/>
+    <literal id="controlSingleTreeNodeStatus0" text="open"/>
+    <literal id="controlSingleTreeNodeStatus1" text="afgesloten"/>
+    <literal id="controlSingleTreeNodeStatus2" text="Laatste node"/>
+    <literal id="copyToClipboard" text="Gebruik ctrl-c om de geselecteerde tekst in het systeem klembord te plaatsen."/>
+    <literal id="copyToClipboardTitle" text="kopieer naar klembord"/>
+    <literal id="ctrl" text="Ctrl"/>
+    <literal id="daySelectionWarning" text="Pay attention: ${comment}"/>
+    <literal id="filechooser_cancel" text="Annuleren"/>
+    <literal id="filechooser_clear" text="Lijst leegmaken"/>
+    <literal id="filechooser_clearFile" text="Verwijder"/>
+    <literal id="filechooser_selectFiles" text="Selecteer..."/>
+    <literal id="filechooser_selectedFiles" text="Geselecteerd(e) bestand(en):"/>
+    <literal id="filechooser_upload" text="Opladen"/>
+    <literal id="fileupload_cancel" text="Annuleren"/>
+    <literal id="fileupload_clear" text="Lijst leegmaken"/>
+    <literal id="fileupload_clearFile" text="Verwijder"/>
+    <literal id="fileupload_selectFiles" text="Selecteer de te importeren bestanden..."/>
+    <literal id="fileupload_selectedFiles" text="Geselecteerd(e) bestand(en):"/>
+    <literal id="fileupload_upload" text="Importeren..."/>
+    <literal id="fileupload_extensiondoesnotmatch" text="Extensie niet correct"/>
+    <literal id="formatAdviceDay" text="dd"/>
+    <literal id="formatAdviceHour" text="hh"/>
+    <literal id="formatAdviceMinute" text="mm"/>
+    <literal id="formatAdviceMonth" text="mm"/>
+    <literal id="formatAdviceSecond" text="ss"/>
+    <literal id="formatAdviceYear" text="yyyy"/>
+    <literal id="hintFromIncorrectValueReset" text="Van waarde: &#34;${value}&#34;"/>
+    <literal id="hintIncorrectValueReset" text="Format: &#34;${format}&#34;"/>
+    <literal id="hintToIncorrectValueReset" text="Tot waarde: &#34;${value}&#34;"/>
+    <literal id="messageIncorrectValue" text="Foutieve waarde &#34;${value}&#34; - s.v.p. controleren."/>
+    <literal id="messageIncorrectValueReset" text="Foutieve waarde &#34;${value}&#34; - de vorige waarde wordt teruggezet."/>
+    <literal id="ok" text="OK"/>
+    <literal id="shift" text="Shift"/>
+    <literal id="today" text="Vandaag"/>
+    <literal id="todayShort" text="Vandaag"/>
+    <literal id="zzzzz" text="zzzzz"/>
+</literals>

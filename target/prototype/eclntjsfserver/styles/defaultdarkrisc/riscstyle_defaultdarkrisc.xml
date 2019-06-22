@@ -1,0 +1,19 @@
+<stylesheet>
+
+    <var n="@ccWorkplaceBackground@" v="#606060"/>
+    <var n="@titlebarBackground@" v="#404040"/>
+    <var n="@rowbodypaneBackground@" v="#F7F7F7"/>
+    <var n="@rowbodypaneBorderWidth@" v="1"/>
+    <var n="@type1Background@" v="#404040"/>
+    <var n="@type1SelectedBackground@" v="#404040"/>
+    <var n="@type1Background90@" v="#404040"/>
+    <var n="@lighttype1Background@" v="#505050"/>
+    <var n="@type2Background@" v="#707070"/>
+    <var n="@type2SelectedBackground@" v="#707070"/>
+    <var n="@type2Background90@" v="#707070"/>
+    <var n="@lighttype2Background@" v="#808080"/>
+    <var n="@wpselectorBackground@" v="#404040"/>
+    <var n="@wpselectorSelectedBackground@" v="#404040"/>
+    <var n="@lightwpselectorBackground@" v="#505050"/>
+
+</stylesheet>

@@ -1,0 +1,29 @@
+<resources>
+  <resource name="literals" package="com.xxx.yyy"/>
+  <resource name="params" package="com.xxx.yyy"/>
+</resources>
+
+<!--
+Resources that are referenced
+
+For each resource bundle that you define you need to add one resource definition.
+Each resource definition consists out of:
+
+name: the name of the file (without .properties extension), which is at the
+same point of time the name you define within the expression (#{rr.name.xyz})
+
+package: the Java package in which the resource file is kept. This tells the resource
+editor where to place and update the resoruce files. The Java source directory is part
+of the project definition - together with the package definition the resource editor
+will find the right file location.
+
+defaultvalue (optional): default value that is returned if a property could not
+be resolved (e.g. because it is missing in the resource bundle). By default a string
+is returned showing the name of the resource and the name of the property. When defining
+defaultvalue as "null" then null is returned at runtime.
+
+expression (optional): expression of the resource reader that loads the literals. By
+Default the resource reader is used with expression "rr", so that a literal is reached
+by e.g. expression "#{rr.literals['literalId']}". You may add an own implementation
+of a resource reader and use some different expression name than "rr".
+-->

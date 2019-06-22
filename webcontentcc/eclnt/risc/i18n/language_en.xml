@@ -1,0 +1,115 @@
+<literals>
+    <monthName text="January"/>
+    <monthName text="February"/>
+    <monthName text="March"/>
+    <monthName text="April"/>
+    <monthName text="May"/>
+    <monthName text="June"/>
+    <monthName text="July"/>
+    <monthName text="August"/>
+    <monthName text="September"/>
+    <monthName text="October"/>
+    <monthName text="November"/>
+    <monthName text="December"/>
+    <weekdayNameShort text="Mo"/>
+    <weekdayNameShort text="Tu"/>
+    <weekdayNameShort text="We"/>
+    <weekdayNameShort text="Th"/>
+    <weekdayNameShort text="Fr"/>
+    <weekdayNameShort text="Sa"/>
+    <weekdayNameShort text="Su"/>
+    <literal id="alt" text="Alt"/>
+    <literal id="color_blue" text="Blue"/>
+    <literal id="color_green" text="Green"/>
+    <literal id="color_hexcode" text="Hex code"/>
+    <literal id="color_palette" text="Palette"/>
+    <literal id="color_red" text="Red"/>
+    <literal id="color_rgb" text="RGB"/>
+    <literal id="confirmExit" text="Do you really want to exit this application?"/>
+    <literal id="controlAutoComplete" text="Combo field with search"/>
+    <literal id="controlButton" text="Button"/>
+    <literal id="controlButton_selected" text="active"/>
+    <literal id="controlButton_unselected" text="inactive"/>
+    <literal id="controlCalendarField" text="Calendar field"/>
+    <literal id="controlCheckBox" text="Check box"/>
+    <literal id="controlCheckBoxValue_false" text="off"/>
+    <literal id="controlCheckBoxValue_true" text="on"/>
+    <literal id="controlCheckBoxValue_undefined" text="undefined"/>
+    <literal id="controlColorField" text="Color field"/>
+    <literal id="controlComboBox" text="Combo box"/>
+    <literal id="controlComboField" text="Combo field"/>
+    <literal id="controlField" text="Field"/>
+    <literal id="controlFieldFormat_color" text="color"/>
+    <literal id="controlFieldFormat_date" text="date"/>
+    <literal id="controlFieldFormat_datetime" text="date and time"/>
+    <literal id="controlFieldFormat_decimal" text="number"/>
+    <literal id="controlFieldFormat_integer" text="integer"/>
+    <literal id="controlFieldFormat_time" text="time"/>
+    <literal id="controlHeaderLabel" text="Column header"/>
+    <literal id="controlHeaderLabel_sort_ascending" text="acending"/>
+    <literal id="controlHeaderLabel_sort_descending" text="descending"/>
+    <literal id="controlImage" text="Image"/>
+    <literal id="controlLabel" text="Label"/>
+    <literal id="controlMenuItem" text="Menu item"/>
+    <literal id="controlOutlookbarButton" text="Accordion selection"/>
+    <literal id="controlPassword" text="Password"/>
+    <literal id="controlProgressBar" text="Progress bar"/>
+    <literal id="controlRadioButton" text="Radio button"/>
+    <literal id="controlRadioButtonValue_false" text="off"/>
+    <literal id="controlRadioButtonValue_true" text="on"/>
+    <literal id="controlSingleTreeNode" text="Tree node"/>
+    <literal id="controlSingleTreeNodeLevel" text="Level"/>
+    <literal id="controlSingleTreeNodeStatus0" text="open"/>
+    <literal id="controlSingleTreeNodeStatus1" text="closed"/>
+    <literal id="controlSingleTreeNodeStatus2" text="End node"/>
+    <literal id="controlSlider" text="Slider"/>
+    <literal id="controlSlider_max" text="max"/>
+    <literal id="controlSlider_min" text="min"/>
+    <literal id="controlTabbedLineButton" text="Area selection"/>
+    <literal id="controlTextArea" text="Text area"/>
+    <literal id="controlTextPane" text="Text pane"/>
+    <literal id="copyToClipboard" text="Use ctrl-c to copy the selected text into the system clipboard."/>
+    <literal id="copyToClipboardMenuItemText" text="Copy text: "/>
+    <literal id="copyToClipboardTitle" text="Copy to clipboard"/>
+    <literal id="ctrl" text="Ctrl"/>
+    <literal id="dataTransferErrorMessage" text="The server cannot be reached (number of attempts: ${numberOfAttempts}).&#10;&#10;&#34;OK&#34;: The client will continue to try to connect&#10;&#34;Cancel&#34;: The client will cancel the communication. Input data might get lost."/>
+    <literal id="daySelectionWarning" text="Pay attention: ${comment}"/>
+    <literal id="filechooser_cancel" text="Cancel"/>
+    <literal id="filechooser_clear" text="Clear list"/>
+    <literal id="filechooser_clearFile" text="Remove"/>
+    <literal id="filechooser_selectFiles" text="Select file..."/>
+    <literal id="filechooser_selectedFiles" text="Selected file(s):"/>
+    <literal id="filechooser_upload" text="Take over"/>
+    <literal id="fileupload" text="File upload"/>
+    <literal id="fileupload_cancel" text="Cancel"/>
+    <literal id="fileupload_clear" text="Clear list"/>
+    <literal id="fileupload_clearFile" text="Remove"/>
+    <literal id="fileupload_maxfilesize" text="Maximum upload size (${value} kB) exceeded."/>
+    <literal id="fileupload_maxnumberoffiles" text="Maximum number of files (${value}) exceeded."/>
+    <literal id="fileupload_maxsinglefilesize" text="Maximum file size (${value} kB) exceeded."/>
+    <literal id="fileupload_problemduringupload" text="Problem occurred during file upload."/>
+    <literal id="fileupload_selectFiles" text="Select files for upload..."/>
+    <literal id="fileupload_selectedFiles" text="Selected file(s):"/>
+    <literal id="fileupload_upload" text="Upload..."/>
+    <literal id="fileupload_extensiondoesnotmatch" text="Extension does not match"/>
+    <literal id="formatAdviceDay" text="dd"/>
+    <literal id="formatAdviceHour" text="hh"/>
+    <literal id="formatAdviceMinute" text="mm"/>
+    <literal id="formatAdviceMonth" text="mm"/>
+    <literal id="formatAdviceSecond" text="ss"/>
+    <literal id="formatAdviceYear" text="yyyy"/>
+    <literal id="hintFromIncorrectValueReset" text="From value: &#34;${value}&#34;"/>
+    <literal id="hintIncorrectValueReset" text="Format: &#34;${format}&#34;"/>
+    <literal id="hintToIncorrectValueReset" text="To value: &#34;${value}&#34;"/>
+    <literal id="messageIncorrectValue" text="Incorrect value &#34;${value}&#34; - please check."/>
+    <literal id="messageIncorrectValueReset" text="Incorrect value &#34;${value}&#34; - the value is reset to its previous value."/>
+    <literal id="ok" text="OK"/>
+    <literal id="riscpdfprinterpopup_button_notprinted" text="Document was NOT printed"/>
+    <literal id="riscpdfprinterpopup_button_printed" text="Document was printed"/>
+    <literal id="riscpdfprinterpopup_confirmlabel" text="Please explicitly confirm:"/>
+    <literal id="riscpdfprinterpopup_openlink" text="Open document in own browser"/>
+    <literal id="shift" text="Shift"/>
+    <literal id="today" text="Today"/>
+    <literal id="todayShort" text="Today"/>
+    <literal id="zzzzz" text="zzzzz"/>
+</literals>

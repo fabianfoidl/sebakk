@@ -1,0 +1,98 @@
+<literals>
+    <monthName text="Januari"/>
+    <monthName text="Februari"/>
+    <monthName text="Mars"/>
+    <monthName text="April"/>
+    <monthName text="Maj"/>
+    <monthName text="Juni"/>
+    <monthName text="Juli"/>
+    <monthName text="Augusti"/>
+    <monthName text="September"/>
+    <monthName text="Oktober"/>
+    <monthName text="November"/>
+    <monthName text="December"/>
+    <weekdayNameShort text="mån"/>
+    <weekdayNameShort text="tis"/>
+    <weekdayNameShort text="ons"/>
+    <weekdayNameShort text="tor"/>
+    <weekdayNameShort text="fre"/>
+    <weekdayNameShort text="lör"/>
+    <weekdayNameShort text="sön"/>
+    <literal id="alt" text="Alt"/>
+    <literal id="color_blue" text="Blå"/>
+    <literal id="color_green" text="Grön"/>
+    <literal id="color_hexcode" text="Hexadecimal kod"/>
+    <literal id="color_palette" text="Färgpalett"/>
+    <literal id="color_red" text="Röd"/>
+    <literal id="color_rgb" text="RGB"/>
+    <literal id="confirmExit" text="Vill ni verkligen lämna applikationen?"/>
+    <literal id="controlButton" text="Knapp"/>
+    <literal id="controlButton_selected" text="aktiv"/>
+    <literal id="controlButton_unselected" text="inaktiv"/>
+    <literal id="controlCheckBox" text="Urval"/>
+    <literal id="controlCheckBoxValue_false" text="från"/>
+    <literal id="controlCheckBoxValue_true" text="till"/>
+    <literal id="controlCheckBoxValue_undefined" text="ej satt"/>
+    <literal id="controlField" text="Fält"/>
+    <literal id="controlFieldFormat_color" text="Färg"/>
+    <literal id="controlFieldFormat_date" text="Datum"/>
+    <literal id="controlFieldFormat_datetime" text="Datum och Tid"/>
+    <literal id="controlFieldFormat_decimal" text="Tal"/>
+    <literal id="controlFieldFormat_integer" text="Heltal"/>
+    <literal id="controlFieldFormat_time" text="Tid"/>
+    <literal id="controlHeaderLabel" text="Kolumn titel"/>
+    <literal id="controlHeaderLabel_sort_ascending" text="Sorterat från minsta till största"/>
+    <literal id="controlHeaderLabel_sort_descending" text="Sorterat från största till minsta"/>
+    <literal id="controlLabel" text="Text"/>
+    <literal id="controlOutlookbarButton" text="Dragspel urval"/>
+    <literal id="controlProgressBar" text="Förloppsindikator"/>
+    <literal id="controlRadioButton" text="Flervalsprov"/>
+    <literal id="controlRadioButtonValue_false" text="från"/>
+    <literal id="controlRadioButtonValue_true" text="till"/>
+    <literal id="controlSingleTreeNode" text="Nod"/>
+    <literal id="controlSingleTreeNodeLevel" text="Nivå"/>
+    <literal id="controlSingleTreeNodeStatus0" text="öppen"/>
+    <literal id="controlSingleTreeNodeStatus1" text="sluten"/>
+    <literal id="controlSingleTreeNodeStatus2" text="Slutnod"/>
+    <literal id="controlSlider" text="Skjutkontroll"/>
+    <literal id="controlSlider_max" text="max"/>
+    <literal id="controlSlider_min" text="min"/>
+    <literal id="controlTabbedLineButton" text="Områdes urval"/>
+    <literal id="copyToClipboard" text="Kopiera innehållet till klippbordet med CTRL-C."/>
+    <literal id="copyToClipboardTitle" text="Kopiera innehållet till klippbordet"/>
+    <literal id="ctrl" text="Ctrl"/>
+    <literal id="daySelectionWarning" text="Pay attention: ${comment}"/>
+    <literal id="filechooser_cancel" text="Avbryt"/>
+    <literal id="filechooser_clear" text="Radera lista"/>
+    <literal id="filechooser_clearFile" text="Ta bort"/>
+    <literal id="filechooser_selectFiles" text="Välj fil..."/>
+    <literal id="filechooser_selectedFiles" text="Valda filer:"/>
+    <literal id="filechooser_upload" text="Överta"/>
+    <literal id="fileupload_cancel" text="Avbryt"/>
+    <literal id="fileupload_clear" text="Radera lista"/>
+    <literal id="fileupload_clearFile" text="Ta bort"/>
+    <literal id="fileupload_maxfilesize" text="Maximal uppladdning överskriden (${value} kB)."/>
+    <literal id="fileupload_maxnumberoffiles" text="Maximalt antal filer överskridet (${value} kB)."/>
+    <literal id="fileupload_maxsinglefilesize" text="Maximal filstorlek överskriden (${value} kB)."/>
+    <literal id="fileupload_selectFiles" text="Välj fil..."/>
+    <literal id="fileupload_selectedFiles" text="Valda filer:"/>
+    <literal id="fileupload_upload" text="Skicka till server"/>
+    <literal id="fileupload_extensiondoesnotmatch" text="Extension does not match"/>
+    <literal id="formatAdviceDay" text="dd"/>
+    <literal id="formatAdviceHour" text="hh"/>
+    <literal id="formatAdviceMinute" text="mm"/>
+    <literal id="formatAdviceMonth" text="mm"/>
+    <literal id="formatAdviceSecond" text="ss"/>
+    <literal id="formatAdviceYear" text="yyyy"/>
+    <literal id="hintFromIncorrectValueReset" text="Det minsta tillåtna värdet är: "/>
+    <literal id="hintIncorrectValueReset" text="Inmatningsformatet är: &#34;${format}&#34;"/>
+    <literal id="hintToIncorrectValueReset" text="Det största tillåtna värdet är: "/>
+    <literal id="messageIncorrectValue" text="Ogiltigt värde &#34;${value}&#34; - var vänlig att kontrollera er inmatning."/>
+    <literal id="messageIncorrectValueReset" text="Ogiltigt värde &#34;${value}&#34; - värdet återställdes till sitt ursprungliga värde."/>
+    <literal id="ok" text="OK"/>
+    <literal id="selectFiles" text="Välj filer att skicka…"/>
+    <literal id="shift" text="Shift"/>
+    <literal id="today" text="I dag"/>
+    <literal id="todayShort" text="I dag"/>
+    <literal id="zzzzz" text="zzzzz"/>
+</literals>

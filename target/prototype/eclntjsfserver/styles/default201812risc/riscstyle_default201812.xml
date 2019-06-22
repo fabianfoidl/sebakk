@@ -1,0 +1,146 @@
+<stylesheet>
+    <var n="@backgroundModifierDisabled@" v="nobackground, rgba(0,0,0,0.02)"/>
+    <var n="@backgroundModifierDisabledInGridCell@" v="linear-gradient(to bottom, rgba(255,0,0,0.07),rgba(255,0,0,0.07))"/>
+    <var n="@baseColorLight@" v="#F0F0F0"/>
+    <var n="@buttonBackground@" v="#DDDDDD"/>
+    <var n="@buttonBorderColor@" v="#0000000A"/>
+    <var n="@buttonBoxShadow@" v="2px 2px 2px rgba(0,0,0,0.08)"/>
+    <var n="@buttonForeground@" v="#505050"/>
+    <var n="@containerBoxShadow@" v="none"/>
+    <var n="@containerMargin@" v="0 0 0 0"/>
+    <var n="@fieldBackground@" v="rgba(0,0,0,0.06)"/>
+    <var n="@fieldBorderColor@" v="transparent"/>
+    <var n="@gridHeaderBackground@" v="#E8E8E8"/>
+    <var n="@headerBackground@" v="#E8E8E8"/>
+    <var n="@lightGray@" v="#F0F0F0"/>
+    <var n="@rowbodypaneBackground@" v="@lightGray@"/>
+    <var n="@scrollbarMoverBorderWidth@" v="0"/>
+    <var n="@shadedBackground@" v="#FFFFFF"/>
+    <var n="@statusbarBackground@" v="#E8E8E8"/>
+    <var n="@ultraLightGray@" v="#F8F8F8"/>
+    
+    <class n="riscbox">
+        <risc  n="border" v="0 0 0 0"/>
+        <style n="border" v="0px solid @containerBorderColor@"/>
+    </class>
+    <class n="riscbutton">
+        <risc  n="border" v="1 1 1 1"/>
+        <style n="border" v="1px solid @buttonBorderColor@"/>
+        <style n="border-radius" v="5px"/>
+    </class>
+    
+    <class n="riscfieldcontainer">
+        <risc  n="border" v="0 0 1 0"/>
+        <style n="border" v="0px"/>
+        <style n="border-bottom" v="1px solid @fieldBorderColor@"/>
+        <style n="border-top" v="1px solid transparent"/>
+        <class n=".disabled">
+            <style n="border-bottom" v="1px solid transparent"/>
+        </class>
+    </class>
+    <class n="riscfieldcontainer_ingridcell" extends="riscfieldcontainer">
+        <var   n="@fieldBackground@" v="#FFFFFF"/>
+        <risc  n="_backgroundModifierDisabled" v="@backgroundModifierDisabledInGridCell@"/>
+    </class>
+    
+    <class n="risccombofield">
+        <risc  n="border" v="0 0 1 0"/>
+        <style n="border" v="0px"/>
+        <style n="border-bottom" v="1px solid @fieldBorderColor@"/>
+        <class n="_field">
+            <style n="border-bottom" v="0px"/>
+        </class>
+    </class>
+    <class n="risccombofield_ingridcell" extends="risccombofield">
+        <var   n="@fieldBackground@" v="#FFFFFF"/>
+        <risc  n="_backgroundModifierDisabled" v="@backgroundModifierDisabledInGridCell@"/>
+    </class>
+    
+    <class n="riscspinner">
+        <risc  n="background" v="@fieldBackground@"/>
+        <risc  n="border" v="0 0 0 0"/>
+        <style n="background" v="@fieldBackground@"/>
+        <style n="border" v="0px"/>
+    </class>
+    <class n="riscspinner_ingridcell" extends="riscspinner">
+        <var   n="@fieldBackground@" v="#FFFFFF"/>
+        <risc  n="_backgroundModifierDisabled" v="@backgroundModifierDisabledInGridCell@"/>
+    </class>
+    
+    <class n="riscdateselection">
+        <risc  n="background" v="@ultraLightGray@"/>
+        <risc  n="border" v="0 0 0 0"/>
+        <style n="background" v="@ultraLightGray@"/>
+        <style n="border" v="0px"/>
+    </class>
+    <class n="riscdateselection_datebutton">
+        <class n=".workday">
+            <style n="background" v="transparent"/>
+        </class>
+    </class>
+    
+    <class n="riscflexgridrowselector">
+        <var   n="@buttonForeground@" v="#000000"/>
+    </class>
+    <class n="riscfoldablepane">
+        <var   n="@foldableContentBorderWidth@" v="0"/>
+        <class n="_toppane">
+            <risc  n="border" v="0 0 1 0"/>
+            <risc  n="inset" v="5 10 5 10"/>
+            <style n="border" v="0px solid @baseColor@"/>
+            <style n="border-bottom" v="1px solid @baseColorLight@"/>
+        </class>
+        <class n="_toppane_closed">
+            <risc  n="border" v="0 0 0 0"/>
+            <risc  n="inset" v="5 10 5 10"/>
+            <style n="border" v="0px solid @containerBorderColor@"/>
+            <style n="border-bottom" v="0px solid @containerBorderColor@"/>
+        </class>
+    </class>
+    <class n="riscfoldableverticalpane">
+        <risc  n="border" v="0 0 0 0"/>
+        <style n="border" v="0px solid @containerBorderColor@"/>
+    </class>
+    <class n="riscinternal_riscglobal">
+        <risc  n="_backgroundModifierFormatError" v="url(eclntjsfserver/images/iconssvg/error.svg) no-repeat right top"/>
+        <risc  n="_backgroundModifierFormatMandatory" v="url(eclntjsfserver/images/iconssvg/mandatory.svg) no-repeat right top"/>
+    </class>
+    
+    <class n="riscradiobutton">
+        <class n="_image">
+            <risc  n="background" v="@fieldBackground@"/>
+            <style n="background-color" v="@fieldBackground@"/>
+            <style n="border" v="1px solid transparent"/>
+        </class>
+    </class>
+    <class n="risccheckbox">
+        <class n="_image">
+            <risc  n="background" v="@fieldBackground@"/>
+            <style n="background-color" v="@fieldBackground@"/>
+            <style n="border" v="1px solid transparent"/>
+        </class>
+    </class>
+    
+    <class n="riscschedule">
+        <var   n="@backgroundColor@" v="transparent"/>
+    </class>
+    
+    <class n="riscscrollbar_slider">
+    </class>
+    
+    <class n="risctabbedpane">
+        <risc  n="border" v="0 0 0 0"/>
+        <style n="background" v="@shadedBackground@"/>
+        <style n="border" v="0px"/>
+        <class n="_content">
+            <var   n="@shadedBackground@" v="transparent"/>
+            <style n="border-top" v="1px solid @baseColorLight@"/>
+        </class>
+        <class n="_tabbedline">
+            <var   n="@type2Background@" v="transparent"/>
+            <var   n="@type2SelectedBackground@" v="transparent"/>
+            <class n="_button">
+            </class>
+        </class>
+    </class>
+</stylesheet>

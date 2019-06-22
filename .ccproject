@@ -1,0 +1,21 @@
+<project
+        copywebapp="true"
+        javaclassdirectory="${project}/target/classes"
+        javasourcedirectory="${project}/src/main/java"
+        managedbycctoolset="false"
+        reloadwebapp="true"
+        webappaddonsdirectory="${project}/webcontentcc"
+        webcontentdeploydirectory="${deploytomcatwebappsdir}/${projectname}"
+        webcontentdirectory="${project}/src/main/webapp"
+        webcontextroot="${projectname}"
+        webhostport="localhost:${deploytomcatport}">
+
+    <deploycopyinfo
+            fromdir="${project}/target/${projectname}"
+            todir="${projectdeploy}">
+    </deploycopyinfo>
+
+    <hotdeploymentpackage
+            name="*">
+    </hotdeploymentpackage>
+</project>

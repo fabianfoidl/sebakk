@@ -1,0 +1,19 @@
+<style extends="defaultrisc">
+    <stylevalue name="ccEditorTitlebarRendered" value="false"/>
+    <stylevalue name="ccYesNoPopupBackground" value="#00000000"/>
+    <stylevalue name="ccYesNoPopupImageBackground" value="#00000030"/>
+    <tag name="rowbodypane" variant="LEFT" extendstag="robodypane" extendsvariant="default">
+        <set attribute="fxstyleseq" value="cc_rowbodypane"/>
+    </tag>
+    <tag name="rowbodypane" variant="EDITOR" extendstag="robodypane" extendsvariant="default">
+        <set attribute="fxstyleseq" value="cc_rowbodypane"/>
+    </tag>
+    <tag name="pane" variant="SELECTIONAREA" extendstag="pane" extendsvariant="default">
+        <set attribute="styleseq" value="cc_editorselectionarea"/>
+    </tag>
+    <tag name="pane" variant="BUTTONPOPUP" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="helpicon" variant="default" extendsparenttag="true">
+        <set attribute="image" value="/eclntjsfserver/images/iconssvg/bulb_light_16x16.svg"/>
+    </tag>
+</style>

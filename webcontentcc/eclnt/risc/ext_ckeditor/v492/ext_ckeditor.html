@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="ckeditor.js"></script>
+<script>
+    
+function passText(text)
+{
+    CKEDITOR.instances.editor1.setData(text);    
+}
+
+function readText()
+{
+    return CKEDITOR.instances.editor1.getData();
+}
+
+function reactOnResize()
+{
+    setTimeout(reactOnResizeExecute,50);
+}
+ 
+function reactOnResizeExecute()
+{
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    try
+    {
+        CKEDITOR.instances.editor1.resize(""+width,""+height);
+    }
+    catch (exc)
+    {
+        reactOnResize();
+    }
+}
+
+function startup()
+{
+    try
+    {
+        reactOnResize();
+    }
+    catch (t) {}
+    var bufferId = findBufferId();
+    var text = window.parent.RISCNicEditBuffer[bufferId];
+    if (text != null)
+        passText(text);
+    else
+        passText("");
+}
+
+function reactOnUnload()
+{
+    var text = readText();
+    var url = document.location.href;
+    var index = url.indexOf("?");
+    var bufferId = url.substring(index+1);
+    window.parent.RISCNicEditBuffer[bufferId] = text;
+}
+
+function findBufferId()
+{
+    var url = document.location.href;
+    var index = url.indexOf("?");
+    return url.substring(index+1);
+}
+
+function reactOnChange()
+{
+    var bufferId = findBufferId();
+    window.parent.RISCNicEditCallBackBuffer[bufferId]("change");
+}
+
+</script>
+</head>
+<body style="border:0;margin:0;padding:0;overflow:hidden" onresize="reactOnResize();" onload="startup();" onunload="reactOnUnload();">
+    <form>
+        <textarea name="editor1" id="editor1" rows="20" cols="80" >
+        </textarea>
+        <script>
+CKEDITOR.replace('editor1');
+CKEDITOR.editorConfig = function( config ) 
+{
+    config.toolbarGroups = [
+            { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+            { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+            { name: 'links', groups: [ 'links' ] },
+            { name: 'insert', groups: [ 'insert' ] },
+            { name: 'forms', groups: [ 'forms' ] },
+            { name: 'tools', groups: [ 'tools' ] },
+            { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+            { name: 'others', groups: [ 'others' ] },
+            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+            { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+            { name: 'styles', groups: [ 'styles' ] },
+            { name: 'colors', groups: [ 'colors' ] },
+            { name: 'about', groups: [ 'about' ] }
+    ];
+    config.removeButtons = 'Subscript,Superscript,Anchor,Strike,About';
+    config.extraPlugins = 'onchange';
+};
+CKEDITOR.instances.editor1.on("change",function(e) { reactOnChange(); });
+        </script>
+    </form>
+</body>
+</html>

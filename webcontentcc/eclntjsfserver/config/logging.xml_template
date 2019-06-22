@@ -1,0 +1,88 @@
+
+<logging level="INFO"
+         console="false"
+         outputclassmethod="false">
+     
+     <!--
+       ************************************************************************ 
+       loglevel that is used if errors occur when resolving an 
+       property-access via expression resolution. And: decision of 
+       a stack trace is output.
+       
+       Possible values for level: SEVERE, WARNING(default), INFO, FINE
+       Possible values for stacktrace: true/false(default)
+       ************************************************************************ 
+       -->
+     <!--    
+     <loglevelmissingpropertyget level="WARNING" stacktrace="false"/>
+     -->
+</logging>
+
+<!--
+Configuration of server side logging.
+
+level: 
+(optional) granularity level of log information
+Possible values: SEVERE, WARNING, INFO, FINE, ALL
+
+console: 
+(optional) additional log output into console
+Possible values: true, false
+
+directory: 
+(optional) directory in which log file is written;
+if not defined then the log is written in the web application temp directory
+(Tomcat: /tomcat/work/Catalina/....)
+Example value: c:/logs/EnterpriseClient/
+
+loginfoproviderclassname: 
+(optional) class name of class
+implemnenting interface ILogInfoProvider, so that certain information
+(e.g. directory) is collected dynamically via interface.
+
+limit: 
+(optional) number of bytes written to any one logfile,
+the default is 10.000.000 - after reaching this limit a new file
+is started, receiving a new counter. The counte is rotating up
+to the count-paramter.
+
+count: 
+(optional) Number of files written. If a file is written and reaches
+its size-limit, then the next file is started. The name of the file is rotating
+from 0 up to the parameter defined via this count definition. The default is 5.
+
+delegateclassname: 
+(optional) name of class implementing ILogOutput.
+By using this class you can delegate log output to your own logging 
+infrstructure. There is a default class "org.eclnt.util.log.Log4JLogOutput"
+that delegates the log ouptut to the log4j root logger.
+
+outputclassmethod: 
+(optional) if  set to true then extended log information
+is output per line: the method and the classname of the log output. By default
+it is switched off because of performance reasons.
+
+loginitializationaserror: 
+(optional) if set to false then the initialization
+of the CaptainCasa runtim is NOT logged as error. The default is true, this
+means that initialization data (version, configuration information) is always
+logged at the beginning of each log.
+
+useparenthandlers: 
+(optional) if set to true, then logging includes the
+normal logging provided by the servlet container.  
+
+useslf4jbridge: 
+(optional) if set to true, then a SLF4JBridgeHandler is added
+to the log handlers - setting up a connection so the SLF4J Logging. Please note:
+the SLF4J-libraries are NOT part of the default libraries coming with the
+CaptainCasa delivery. If using the bridge then you need to add the jars: slf4j-api, 
+jul-to-slf4j and e.g. slf4j-simple. You MUST NOT add slf4j-jdk14 otherwise
+you will end up in endless loops! (the logger bridge is calling SLF4J logging, 
+which itself is calling the Java-logger which then delegates to the logger bridge...)
+
+slf4jremovehandlersforrootlogger:
+(optional, only applied of useslf4jbrige is true) if defined as true then
+the method SLF4JBridgeHandler.removeHandlersForRootLogger() is called prior
+to installing the brige.
+-->

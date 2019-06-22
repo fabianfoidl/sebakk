@@ -1,0 +1,759 @@
+<style>
+
+    <stylevalue name="ccLightBorderColor" value="#00000018"/>
+    <stylevalue name="ccWorkplaceOutestPadding" value="0"/>
+    <stylevalue name="ccWorkplaceIntroButtonColor" value="#33607f"/>
+    <!-- Workplace/Workpage images -->
+    <stylevalue name="ccWpCloseImage" value="/eclntjsfserver/images/iconssvg/close_light_16x16.svg"/>
+    <stylevalue name="ccWpPopupImage" value="/eclntjsfserver/images/iconssvg/window_popup_light_16x16.svg"/>
+    <stylevalue name="ccWpPopupImageSmall" value="/eclntjsfserver/images/iconssvg/window_popup_light_8x8.svg"/>
+    <stylevalue name="ccWpPopupImageBack" value="/eclntjsfserver/images/iconssvg/window_normalsize_light_16x16.svg"/>
+    <stylevalue name="ccWpPopupImageMaximize" value="/eclntjsfserver/images/iconssvg/window_maximize_light_16x16.svg"/>
+    <stylevalue name="ccWpPopupImageNormalSize" value="/eclntjsfserver/images/window_normalsize.png"/>
+    <stylevalue name="ccWpFavoriteImage" value="/eclntjsfserver/images/iconssvg/favorite_default_light_16x16.svg"/>
+    <stylevalue name="ccWpSearchImage" value="/eclntjsfserver/images/iconssvg/magnifier_16x16.svg"/>
+    <stylevalue name="ccWpSearchHitBackground" value="#fee599"/>
+    <!-- Statusbar images -->
+    <stylevalue name="ccStatusBarClose" value="/eclntjsfserver/images/window_close_metro_16.png"/>
+    <!-- popup images -->
+    <stylevalue name="ccDeleteImage" value="/eclntjsfserver/images/iconssvg/popup_delete_16x16.svg"/>
+    <stylevalue name="ccYesNoPopupYes" value="/eclntjsfserver/images/iconssvg/popup_ok_16x16.svg"/>
+    <stylevalue name="ccYesNoPopupNo" value="/eclntjsfserver/images/iconssvg/popup_no_16x16.svg"/>
+    <stylevalue name="ccYesNoPopupCancel" value="/eclntjsfserver/images/iconssvg/popup_cancel_16x16.svg"/>
+    <stylevalue name="ccYesNoPopupBackground" value="#FFFFFF"/>
+    <stylevalue name="ccYesNoPopupImageBackground" value="#F0F0F0"/>
+    <stylevalue name="ccYesNoPopupLeftColdistanceWidth" value="50%"/>
+    <stylevalue name="ccYesNoPopupRightColdistanceWidth" value="50%"/>
+    <stylevalue name="ccYesNoPopupStyleVariantButtonYes" value="default"/>
+    <stylevalue name="ccYesNoPopupStyleVariantButtonNo" value="default"/>
+    <stylevalue name="ccYesNoPopupStyleVariantButtonCancel" value="default"/>
+    <stylevalue name="ccOKPopupOK" value="/eclntjsfserver/images/iconssvg/popup_ok_16x16.svg"/>
+    <stylevalue name="ccOKPopupCancel" value="/eclntjsfserver/images/iconssvg/popup_cancel_16x16.svg"/>
+    <stylevalue name="ccOKPopupLeftColdistanceWidth" value="50%"/>
+    <stylevalue name="ccOKPopupRightColdistanceWidth" value="50%"/>
+    <stylevalue name="ccOKPopupStyleVariantButtonOK" value="default"/>
+    <!-- <stylevalue name="ccOKPopupImageBackground" value="#F0F0F0"/> -->
+    <stylevalue name="ccOKPopupImageBgpaint" value="bgbackground(#F0F0F0)"/>
+    <!--  <stylevalue name="ccOKPopupTextColor" value="#000000"/> -->
+    <stylevalue name="ccIdValueSelectionOK" value="/eclntjsfserver/images/iconssvg/popup_ok_16x16.svg"/>
+    <!-- component images -->
+<!--     <stylevalue name="ccTabbedLineLeftImage" value="/eclntjsfserver/images/tabbedline_lefticon_metro.png"/> -->
+<!--     <stylevalue name="ccTabbedLineRightImage" value="/eclntjsfserver/images/tabbedline_righticon_metro.png"/> -->
+<!--     <stylevalue name="ccTabbedLineImage" value="/eclntjsfserver/images/tabbedline_icon_metro.png"/> -->
+    <!--  statusbar images -->
+    <stylevalue name="ccStatusbarEmpty" value="/eclntjsfserver/images/iconssvg/statusbar_empty_16x16.svg"/>
+    <stylevalue name="ccStatusbarOutput" value="/eclntjsfserver/images/iconssvg/statusbar_info_16x16.svg"/>
+    <stylevalue name="ccStatusbarMessage" value="/eclntjsfserver/images/iconssvg/statusbar_success_16x16.svg"/>
+    <stylevalue name="ccStatusbarWarning" value="/eclntjsfserver/images/iconssvg/statusbar_warning_16x16.svg"/>
+    <stylevalue name="ccStatusbarError" value="/eclntjsfserver/images/iconssvg/statusbar_error_16x16.svg"/>
+    <stylevalue name="ccStatusbarEmptyBig" value="/eclntjsfserver/images/iconssvg/statusbar_empty_16x16.svg"/>
+    <stylevalue name="ccStatusbarOutputBig" value="/eclntjsfserver/images/iconssvg/statusbar_info_48x48.svg"/>
+    <stylevalue name="ccStatusbarMessageBig" value="/eclntjsfserver/images/iconssvg/statusbar_success_48x48.svg"/>
+    <stylevalue name="ccStatusbarWarningBig" value="/eclntjsfserver/images/iconssvg/statusbar_warning_48x48.svg"/>
+    <stylevalue name="ccStatusbarErrorBig" value="/eclntjsfserver/images/iconssvg/statusbar_error_48x48.svg"/>
+    <stylevalue name="ccStatusbarAdditional" value="/eclntjsfserver/images/iconssvg/statusbar_additional_16x16.svg"/>
+    <stylevalue name="ccStatusbarBgpaintMessage" value="bgbackground(#F0F0F0)"/>
+    <stylevalue name="ccStatusbarBgpaintError" value="bgbackground(#FFDADA)"/>
+    <stylevalue name="ccStatusbarBgpaintWarning" value="bgbackground(#fff2cc)"/>
+    <stylevalue name="ccStatusbarBgpaintSuccess" value="bgbackground(#e2efd9)"/>
+    <stylevalue name="ccStatusbarBgpaintDialogBackground" value="bgbackground(#FFFFFF)"/>
+    <!-- other images -->
+    <stylevalue name="ccReloadImage" value="/images/iconssvg/refresh_light_16x16.svg"/>
+    <stylevalue name="ccWrenchImage" value="/images/iconssvg/tools_light_16x16.svg"/>
+    <stylevalue name="ccCloseAllImage" value="/images/iconssvg/closeall_light_16x16.svg"/>
+    <stylevalue name="ccCoinsImage" value="/images/iconssvg/money_light_16x16.svg"/>
+    <stylevalue name="ccHappyImage" value="/images/iconssvg/smile_light_16x16.svg"/>
+    <!-- default popup images -->
+    <stylevalue name="ccPopupGridDetailRight" value="/eclntjsfserver/images/iconssvg/popup_right_16x16.svg"/>
+    <stylevalue name="ccPopupGridDetailLeft" value="/eclntjsfserver/images/iconssvg/popup_left_16x16.svg"/>
+    <stylevalue name="ccPopupGridDetailUp" value="/eclntjsfserver/images/iconssvg/popup_up_16x16.svg"/>
+    <stylevalue name="ccPopupGridDetailDown" value="/eclntjsfserver/images/iconssvg/popup_down_16x16.svg"/>
+    <stylevalue name="ccPopupGridFunctionsLeft" value="/eclntjsfserver/images/iconssvg/popup_left_16x16.svg"/>
+    <stylevalue name="ccPopupGridFunctionsRight" value="/eclntjsfserver/images/iconssvg/popup_right_16x16.svg"/>
+    <stylevalue name="ccPopupGridFunctionsSearchFieldBgpaint" value="bgimage(right,/eclntjsfserver/images/iconssvg/magnifier_16x16.svg)"/>
+    
+    <tag name="animateicon" variant="default" extendstag="icon" extendsvariant="default">
+    </tag>
+    <tag name="animatelinkvertical" variant="default" extendstag="link" extendsvariant="default">
+    </tag>
+    <tag name="arraygrid" variant="default" extendstag="fixgrid" extendsvariant="default">
+    </tag>
+    <tag name="autocomplete" variant="default">
+    </tag>
+    <tag name="box" variant="default">
+        <set attribute="styleseq" value="riscbox"/>
+    </tag>
+    <tag name="box" variant="ccexposed">
+        <set attribute="styleseq" value="riscbox_exposed"/>
+    </tag>
+    <tag name="button" variant="default">
+    </tag>
+    <tag name="button" variant="ccingrid">
+        <set attribute="contentareafilled" value="false"/>
+    </tag>
+    <tag name="button" variant="keyselector" extendstag="button" extendsvariant="default">
+        <set attribute="contentareafilled" value="false"/>
+    </tag>
+    <tag name="button" variant="keyselectorselected" extendstag="button" extendsvariant="default">
+        <set attribute="contentareafilled" value="false"/>
+    </tag>
+    <tag name="buttonmenu" variant="default" extendstag="button" extendsvariant="default">
+    </tag>
+    <tag name="buttonpopup" variant="default" extendstag="button" extendsvariant="default">
+    </tag>
+    <tag name="calendar" variant="default">
+    </tag>
+    <tag name="calendarfield" variant="default" extendstag="combofield" extendsvariant="default">
+    </tag>
+    <tag name="checkbox" variant="default">
+    </tag>
+    <tag name="clock" variant="default" extendstag="label" extendsvariant="default">
+    </tag>
+    <tag name="colline" variant="default">
+    </tag>
+    <tag name="colorfield" variant="default" extendstag="combofield" extendsvariant="default">
+    </tag>
+    <tag name="coloricon" variant="default" extendstag="icon" extendsvariant="default">
+    </tag>
+    <tag name="colsynchedrowline" variant="default">
+        <set attribute="background" value="#C0C0C0"/>
+        <set attribute="height" value="1"/>
+    </tag>
+    <tag name="combobox" variant="default">
+    </tag>
+    <tag name="combofield" variant="default">
+    </tag>
+    <tag name="field" variant="default">
+    </tag>
+    <tag name="filechooser" variant="default" extendstag="combofield" extendsvariant="default">
+    </tag>
+    <tag name="filedownloadbutton" variant="default" extendstag="button" extendsvariant="default">
+    </tag>
+    <tag name="filedownloadlink" variant="default" extendstag="link" extendsvariant="default">
+    </tag>
+    <tag name="fileupload" variant="default" extendstag="combofield" extendsvariant="default">
+    </tag>
+    <tag name="fileuploadbutton" variant="default" extendstag="button" extendsvariant="default">
+    </tag>
+    <tag name="fileuploadbuttonasynchronous" variant="default" extendstag="button" extendsvariant="default">
+    </tag>
+    <tag name="fileuploadlink" variant="default" extendstag="link" extendsvariant="default">
+    </tag>
+    <tag name="fileuploadlinkasynchronous" variant="default" extendstag="link" extendsvariant="default">
+    </tag>
+    <tag name="fixgrid" variant="default">
+    </tag>
+    <tag name="fixgridtouchbutton" variant="default" extendstag="icon" extendsvariant="default">
+    </tag>
+    <tag name="foldablepane" variant="default">
+        <set attribute="titlepadding" value="0"/>
+    </tag>
+    <tag name="foldablepane" variant="ccexposed">
+        <set attribute="titlepadding" value="0"/>
+        <set attribute="styleseq" value="riscfoldablepane_exposed"/>
+    </tag>
+    <tag name="foldablepane" variant="cclight" extendstag="foldablepane" extendsvariant="default">
+        <set attribute="titlepadding" value="0"/>
+        <set attribute="styleseq" value="riscfoldablepane_light"/>
+    </tag>
+    <tag name="foldablepane" variant="ccflat" extendstag="foldablepane" extendsvariant="default">
+        <set attribute="titlepadding" value="0"/>
+        <set attribute="styleseq" value="riscfoldablepane_flat"/>
+    </tag>
+    <tag name="foldablepane" variant="cclightflat" extendstag="foldablepane" extendsvariant="default">
+        <set attribute="titlepadding" value="0"/>
+        <set attribute="styleseq" value="riscfoldablepane_lightflat"/>
+    </tag>
+    <tag name="foldableverticalpane" variant="default">
+    </tag>
+    <tag name="foldablepopupinclude" variant="default">
+        <set attribute="innerpadding" value="0"/>
+        <set attribute="popupwidth" value="600"/>
+        <set attribute="popupheight" value="400"/>
+    </tag>
+    <tag name="formattedfield" variant="default" extendstag="field" extendsvariant="default">
+    </tag>
+    <tag name="fxchart" variant="default">
+    </tag>
+    <tag name="gridcol" variant="default">
+    </tag>
+    <tag name="gridheaderlabel" variant="default">
+    </tag>
+    <tag name="gridrowselector" variant="default" extendstag="icon" extendsvariant="default">
+    </tag>
+    <tag name="helpicon" variant="default" extendstag="icon" extendsvariant="default">
+        <set attribute="image" value="/eclntjsfserver/images/iconssvg/bulb_16x16.svg"/>
+    </tag>
+    <tag name="hyperlink" variant="default" extendstag="link" extendsvariant="default">
+    </tag>
+    <tag name="icon" variant="default">
+    </tag>
+    <tag name="label" variant="default">
+    </tag>
+    <tag name="labelvertical" variant="default" extendstag="label" extendsvariant="default">
+    </tag>
+    <tag name="layeredpane" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="longtextfield" variant="default" extendstag="combofield" extendsvariant="default">
+    </tag>
+    <tag name="link" variant="default">
+    </tag>
+    <tag name="link" variant="alwaysunderline">
+        <set attribute="styleseq" value="risclink_alwaysunderline"/>
+    </tag>
+    <tag name="linkvertical" variant="default" extendstag="link" extendsvariant="default">
+    </tag>
+    <tag name="list" variant="default">
+    </tag>
+    <tag name="mediaplayer" variant="default">
+    </tag>
+    <tag name="menubar" variant="default">
+    </tag>
+    <tag name="modalpopup" variant="default">
+        <set attribute="animationtype" value="fogdark"/>
+    </tag>
+    <tag name="modelesspopup" variant="default">
+        <set attribute="animationtype" value="fogdark"/>
+    </tag>
+    <tag name="outlookbar" variant="default">
+    </tag>
+    <tag name="outlookbarcontent" variant="default">
+    </tag>
+    <tag name="paintarea" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="paintareaitem" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="paintareapaneitem" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="password" variant="default" extendstag="field" extendsvariant="default">
+    </tag>
+    <tag name="pane" variant="default">
+    </tag>
+    <tag name="pane" variant="asbodypane">
+        <set attribute="padding" value="20"/>
+    </tag>
+    <tag name="pdfrenderer" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="pdfrendererviaurl" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="progressbar" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="radiobutton" variant="default">
+    </tag>
+    <tag name="reloadbutton" variant="default" extendstag="button" extendsvariant="default">
+    </tag>
+    <tag name="rowbodypane" variant="default">
+        <set attribute="fxstyleseq" value="cc_rowbodypane"/>
+        <set attribute="padding" value="20"/>
+    </tag>
+    <tag name="rowflexlinecontainer" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="rowdistance" variant="default">
+    </tag>
+    <tag name="rowheader" variant="default">
+        <set attribute="fxstyleseq" value="cc_rowheader"/>
+    </tag>
+    <tag name="rowline" variant="default">
+        <set attribute="background" value="#C0C0C0"/>
+        <set attribute="height" value="1"/>
+    </tag>
+    <tag name="rowtitlebar" variant="default">
+        <set attribute="fxstyleseq" value="cc_pane_titlebar"/>
+        <set attribute="fxstyleseqlabel" value="cc_label_titlebar"/>
+        <set attribute="coldistance" value="5"/>
+    </tag>
+    <tag name="rowstatusbar" variant="default">
+        <set attribute="font" value="#{eclntdefscr.statusbar.font}"/>
+        <set attribute="image" value="#{eclntdefscr.statusbar.image}"/>
+        <set attribute="text" value="#{eclntdefscr.statusbar.text}"/>       
+        <set attribute="bgpaint" value="#{eclntdefscr.statusbar.bgpaint}"/>       
+        <set attribute="fxstyleseq" value="cc_statusbar"/>
+        <set attribute="labelheight" value="20"/>
+        <set attribute="sound" value="/eclntjsfserver/sounds/beeprisc.wav"/>
+    </tag>
+    <tag name="schedule" variant="default">
+    </tag>
+    <tag name="scheduleitem" variant="default">
+    </tag>
+    <tag name="simplehtmleditor" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="shadowedpane" variant="default">
+        <set attribute="background" value="#00000020"/>
+        <set attribute="shadowdistance" value="5"/>
+        <set attribute="shadowbackground" value="#0000000b"/>
+    </tag>
+    <tag name="scrollpane" variant="default">
+    </tag>
+    <tag name="simplelabel" variant="default">
+    </tag>
+    <tag name="sizeablepane" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="sizeablepanehorizontal" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="slider" variant="default">
+    </tag>
+    <tag name="smartlabel" variant="default" extendstag="label" extendsvariant="default">
+    </tag>
+    <tag name="smarttextarea" variant="default" extendstag="textarea" extendsvariant="default">
+    </tag>
+    <tag name="spinner" variant="default">
+    </tag>
+    <tag name="spangrid" variant="default" extendstag="fixgrid" extendsvariant="default">
+    </tag>
+    <tag name="splitpane" variant="default">
+        <set attribute="dividersize" value="4"/>
+    </tag>
+    <tag name="splitpanesplit" variant="default">
+    </tag>
+    <tag name="stackedpane" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="systemicon" variant="default" extendstag="icon" extendsvariant="default">
+    </tag>
+    <tag name="tabbedline" variant="default">
+    </tag>
+    <tag name="tabbedlinevertical" variant="default">
+      <set attribute="fxstyleseqtabs" value="cc_buttontabbedline_left"/>
+    </tag>
+    <tag name="tabbedlinecontainer" variant="default" >
+        <set attribute="fxstyleseq" value="cc_tabbedpane"/>
+        <set attribute="fxstyleseqtabs" value="cc_buttontabbedline"/>
+        <set attribute="fxstyleseqinner" value="cc_pane"/>
+        <set attribute="padding" value="10" />
+    </tag>
+    <tag name="tabbedpane" variant="default">
+    </tag>
+    <tag name="tabbedpane" variant="ccflat">
+        <set attribute="styleseq" value="risctabbedpane_flat"/>
+    </tag>
+    <tag name="tabbedpane" variant="ccexposed">
+        <set attribute="styleseq" value="risctabbedpane_exposed"/>
+    </tag>
+    
+    <tag name="tabbedpane" variant="topmenu">
+        <set attribute="styleseq" value="risctabbedpane_ribbon"/>
+    </tag>
+    <tag name="tabbedpanetab" variant="topmenu" >
+    </tag>
+    
+    <tag name="textarea" variant="default">
+    </tag>
+    <tag name="textpane" variant="default">
+    </tag>
+    <tag name="textwithlinks" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="toggle" variant="default">
+    </tag>
+    <tag name="touchfield" variant="default">
+        <set attribute="fxstyleseq" value="cc_touchfieldgeneric"/>
+    </tag>
+    <tag name="touchfieldnumeric" variant="default" extendstag="touchfield" extendsvariant="default">
+    </tag>
+    <tag name="touchsignature" variant="default" extendstag="pane" extendsvariant="default">
+    </tag>
+    <tag name="treenode" variant="default">
+    </tag>
+    <tag name="treenode" variant="ccbig">
+        <set attribute="fxstyleseq" value="riscsingletreenode_big"/>
+    </tag>
+    <tag name="touchvirtualkeyboard" variant="default" extendstag="touchfield" extendsvariant="default">
+    </tag>
+
+    <!-- explicit transparent usage of text pane e.g. in popups -->
+    <tag name="textpane" variant="TRANSPARENT" extendstag="textpane" extendsvariant="default">
+    </tag>
+    
+    
+    <!--
+        ***********************************************************************  
+        FOLDABLEPANE 
+        The foldable pane is assembled out of several components at server
+        side - following a naming pattern.
+        ***********************************************************************  
+    -->
+    <tag name="pane" variant="foldable_outerpane">
+        <set attribute="fxstyleseq" value="cc_foldable_pane_outerpane"/>
+    </tag>
+    <tag name="pane" variant="foldable_headerpane">
+        <set attribute="fxstyleseq" value="cc_foldable_pane_headerpane"/>
+    </tag>
+    <tag name="animateicon" variant="foldable_title">
+        <set attribute="fxstyleseq" value="cc_foldable_button_title"/>
+    </tag>
+    <tag name="animateicon" variant="foldable_icon">
+        <set attribute="fxstyleseq" value="cc_foldable_button_icon"/>
+    </tag>
+    <tag name="animatedpane" variant="foldable_innerpane">
+        <set attribute="fxstyleseq" value="cc_foldable_pane_innerpane"/>
+    </tag>
+    
+    <tag name="pane" variant="foldable_CCTILEDAREA_FOLDABLEPANE_outerpane">
+        <set attribute="fxstyleseq" value="cc_foldable_pane_outerpane"/>
+    </tag>
+    <tag name="pane" variant="foldable_CCTILEDAREA_FOLDABLEPANE_headerpane">
+        <set attribute="fxstyleseq" value="cc_foldable_pane_headerpane"/>
+    </tag>
+    <tag name="animateicon" variant="foldable_CCTILEDAREA_FOLDABLEPANE_title">
+        <set attribute="fxstyleseq" value="cc_foldable_button_title"/>
+    </tag>
+    <tag name="animateicon" variant="foldable_CCTILEDAREA_FOLDABLEPANE_icon">
+        <set attribute="fxstyleseq" value="cc_foldable_button_icon"/>
+    </tag>
+    <tag name="animatedpane" variant="foldable_CCTILEDAREA_FOLDABLEPANE_innerpane">
+        <set attribute="fxstyleseq" value="cc_foldable_pane_innerpane"/>
+    </tag>
+
+    <!--
+        ***********************************************************************  
+        FOLDABLEPANE variant "cclight"
+        ***********************************************************************  
+    -->
+    <tag name="pane" variant="foldable_cclight_outerpane" extendstag="pane" extendsvariant="foldable_outerpane"/>
+    <tag name="pane" variant="foldable_cclight_headerpane">
+        <set attribute="fxstyleseq" value="cc_foldable_cclight_pane_headerpane"/>
+    </tag>
+    <tag name="animateicon" variant="foldable_cclight_title" extendstag="animateicon" extendsvariant="foldable_title"/>
+    <tag name="animateicon" variant="foldable_cclight_icon" extendstag="animateicon" extendsvariant="foldable_icon"/>
+    <tag name="animatedpane" variant="foldable_cclight_innerpane" extendstag="animatedpane" extendsvariant="foldable_innerpane"/>
+    
+    <!--
+        ***********************************************************************  
+        FOLDABLEVERTICALPANE 
+        ***********************************************************************  
+    -->
+    <tag name="pane" variant="foldablevertical_outerpane">
+        <set attribute="fxstyleseq" value="cc_foldablevertical_pane_outerpane"/>
+    </tag>
+    <tag name="pane" variant="foldablevertical_headerpane">
+        <set attribute="fxstyleseq" value="cc_foldablevertical_pane_headerpane"/>
+    </tag>
+    <tag name="animateicon" variant="foldablevertical_icon">
+        <set attribute="fxstyleseq" value="cc_foldablevertical_icon"/>
+    </tag>
+    <tag name="animatelinkvertical" variant="foldablevertical_title">
+        <set attribute="fxstyleseq" value="cc_foldablevertical_link_title"/>
+    </tag>
+    <tag name="animatedpane" variant="foldablevertical_innerpane">
+        <set attribute="fxstyleseq" value="cc_foldablevertical_pane_innerpane"/>
+    </tag>
+    
+    <!--
+        ***********************************************************************  
+        EDITOR DESIGN VIEW 
+        Components that are added in the editor preview (design view)
+        ***********************************************************************  
+    -->
+    
+    <tag name="icon" variant="cceditordesignview">
+        <set attribute="fxstyleseq" value="cc_button_ccdesignview"/>
+    </tag>
+    
+    <!--
+        ***********************************************************************  
+        TILEDAREA VARIANTS 
+        ***********************************************************************  
+    -->
+    
+    <tag name="foldablepane" variant="CCTILEDAREA_FOLDABLEPANE" extendstag="foldablepane" extendsvariant="default">
+    </tag>
+    
+    <tag name="pane" variant="CCTILEDAREA_VERTICALDISTANCEPANE" extendstag="pane" extendsvariant="default">
+        <set attribute="height" value="20"/>
+    </tag>
+    
+    <tag name="pane" variant="CCTILEDAREA_HORIZONTALDISTANCEPANE" extendstag="pane" extendsvariant="default">
+        <set attribute="width" value="20"/>
+    </tag>
+    
+    <!--
+        ***********************************************************************  
+        WORKPAGE VARIANTS 
+        ***********************************************************************  
+    -->
+    
+    <tag name="pane" variant="WP_OUTESTPANE" extendstag="pane" extendsvariant="default">
+        <set attribute="styleseq" value="cc_wp_background"/>
+    </tag>
+    
+    <tag name="pane" variant="WP_WORKPLACE" extendstag="pane" extendsvariant="default">
+        <set attribute="styleseq" value="cc_wp_workplace"/>
+    </tag>
+    
+    <tag name="pane" variant="WP_WORKPAGECONTAINER" extendstag="pane" extendsvariant="default">
+        <set attribute="styleseq" value="cc_wp_workpagecontainer"/>
+    </tag>
+    
+    <tag name="pane" variant="WP_WORKPAGECONTAINERMINIICON" extendstag="pane" extendsvariant="default">
+        <set attribute="fxstyleseq" value="cc_pane_wp_workpagecontainerminiicon"/>
+    </tag>
+    
+    <tag name="pane" variant="WP_WORKPAGECONTAINERMINIICON_SELECTED" extendstag="pane" extendsvariant="default">
+        <set attribute="fxstyleseq" value="cc_pane_wp_workpagecontainerminiicon_selected"/>
+    </tag>
+        
+    <tag name="rowworkplacefunctiontree" variant="default">
+        <set attribute="foreground" value="#000000"/>
+        <set attribute="background" value="#FFFFFF"/>
+    </tag>
+    <!-- ...used in ROWWORKPLACEFUNCTIONS -->
+    <tag name="t:rowworkplacefunctiontree" variant="WP_WORKPLACEFUNCTIONTREE">
+        <set attribute="foreground" value="#000000"/>
+        <set attribute="background" value="#FFFFFF"/>
+    </tag>
+    <tag name="t:rowworkplacefunctiontree" variant="WP_WORKPLACEFUNCTIONTREE_BIG">
+        <set attribute="foreground" value="#000000"/>
+        <set attribute="background" value="#FFFFFF"/>
+        <set attribute="treenodestylevariant" value="ccbig"/>
+        <set attribute="treenoderowheight" value="30"/>
+        <set attribute="borderwidth" value="0"/>
+        <set attribute="borderheight" value="1"/>
+        <set attribute="bordercolor" value="#00000008"/>
+        <set attribute="gridstylevariant" value="WP_FUNCTIONTREE_BIG"/>
+    </tag>
+    
+    <tag name="fixgrid" variant="WP_FUNCTIONTREE">
+    </tag>
+    <tag name="fixgrid" variant="WP_FUNCTIONTREE_BIG">
+    </tag>
+    <tag name="treenode" variant="WP_FUNCTIONTREE">
+        <set attribute="styleseq" value="cc_wp_functiontree_singletreenode"/>
+    </tag>
+    
+    <!-- 
+        style variant that is used for the bottom or top tabs within the
+        workplace selector component 
+    -->
+    <tag name="t:tabbedline" variant="WP_WORKPAGESELECTOR" >
+        <set attribute="fxstyleseq" value="cc_wp_workpageselector"/>
+    </tag>
+    <!--
+        style of top buttons in an isolated work page 
+    -->
+    <tag name="button" variant="WP_ISOLATEDWORKPAGE">
+    </tag>
+    <!--
+        style of header in isolated work page, the header is holding
+        the buttons for bringing the page back into the content area 
+    -->
+    <tag name="rowheader" variant="WP_ISOLATEDWORKPAGE">
+    </tag>
+    
+    <!--
+        style of split pane that is used inside the ROWWORKPLACE component, every
+        time a split pane is opened (e.g. by user drag and drop operations) then
+        the corresponding splitpane receives this style 
+    -->
+    <tag name="splitpane" variant="WP_TILESPLITPANE">
+        <set attribute="dividercolor" value="#00000000"/>
+        <set attribute="styleseq" value="cc_wp_tilesplitpane"/>
+    </tag>
+    
+    <!--
+      ...the same as the previous one, now for the SPLITPANESPLIT... 
+    -->
+    <tag name="splitpanesplit" variant="WP_TILESPLITPANESPLIT">
+    </tag>
+    
+    <!--
+      the tabbed line that is built up for a selector i placed into a pane. This
+      pane is renderes with the following style.
+    -->
+    <tag name="pane" variant="WP_PANEAROUNDSELECTOR">
+    </tag>
+    
+    <!--
+      Style of the pane that is built around the workpage container within a 
+      workplace.
+    -->
+    <tag name="pane" variant="WP_PANEAROUNDWORKPAGECONTAINER">
+    </tag>
+
+    <!--
+        ...used in ROWWORKPLACEFUNCTIONS
+     -->
+    <tag name="outlookbar" variant="WP_OUTLOOKBAR" extendstag="outlookbar" extendsvariant="default">
+    </tag>
+    
+    <!--
+        ...used in ROWWORKPLACEFUNCTIONS
+     -->
+    <tag name="outlookbaritem" variant="WP_OUTLOOKBARITEM">
+    </tag>
+
+    <!--
+        ...used in ROWWORKPLACEFUNCTIONS
+     -->
+    <tag name="outlookbarcontent" variant="WP_OUTLOOKBARCONTENT" extendstag="outlookbarcontent" extendsvariant="default">
+    </tag>
+
+    <!--
+        ...used in WORKPLACEPERSPECTIVESELECTOR
+     -->
+    <tag name="buttonmenu" variant="WP_PERSPECTIVEMANAGER" extendstag="buttonmenu" extendsvariant="default">
+        <set attribute="contentareafilled" value="false"/>
+        <set attribute="foreground" value="#FFFFFFC0"/>
+    </tag>
+    <tag name="button" variant="WP_FAVORITE" extendstag="button" extendsvariant="default">
+        <set attribute="contentareafilled" value="false"/>
+    </tag>
+    
+    
+    <tag name="pane" variant="WP_WORKPAGECONTAINER_ICONSELECTORRIGHT" extendstag="pane" extendsvariant="default">
+        <set attribute="background" value="#FFFFFF30"/>
+    </tag>
+    
+
+    <tag name="t:button" variant="WP_FOLDABLETOP">
+        <set attribute="fxstyleseq" value="cc_buttonoutlookbar_wp_outlookbaritem"/>
+    </tag>
+
+    <!-- status bar -->
+    <tag name="label" variant="CCStatusbarMessageListTitle">
+        <set attribute="foreground" value="#404040"/>
+        <set attribute="font" value="weight:bold"/>
+    </tag>
+    
+    <!--  IDVALUESELECTION VARIANTS -->
+    <tag name="pane" variant="IDVALUESELECTION">
+        <set attribute="border" value="#808080"/>
+    </tag>
+    <tag name="fixgrid" variant="IDVALUESELECTION">
+        <set attribute="background" value="#E0E0E0"/>
+        <set attribute="borderheight" value="1"/>
+        <set attribute="borderwidth" value="1"/>
+        <set attribute="rowheight" value="16"/>
+        <set attribute="sbvisibleamount" value="20"/>
+        <set attribute="border" value="top:0;left:0;right:0;bottom:0"/>
+    </tag>
+    <tag name="gridcol" variant="IDVALUESELECTION" extendstag="gridcol" extendsvariant="default">
+    </tag>
+    <tag name="button" variant="IDVALUESELECTION" extendstag="button" extendsvariant="default">
+    </tag>
+    <tag name="label" variant="IDVALUESELECTION">
+        <set attribute="background" value="#F0F0F0"/>
+        <set attribute="foreground" value="#000000"/>
+    </tag>
+    <tag name="rowheader" variant="IDVALUESELECTION">
+        <set attribute="background" value="#E0E0E0"/>
+        <set attribute="border" value="top:1;color:#C0C0C0"/>
+        <set attribute="padding" value="3"/>
+    </tag>
+    <tag name="rowbodypane" variant="IDVALUESELECTION">
+        <set attribute="background" value="#FFFFFF"/>
+    </tag>
+    <tag name="textpane" variant="IDVALUESELECTION">
+        <set attribute="background" value="#FFFFF0"/>
+        <set attribute="foreground" value="#000000"/>
+    </tag>
+    
+    <!--  TABBED LINE STYLE VARIANTS -->
+    <tag name="t:tabbedlinecontainer" variant="ccflat" >
+        <set attribute="styleseq" value="risctabbedpane_flat"/>
+    </tag>
+    
+    <tag name="t:tabbedlinecontainer" variant="cctl01" >
+      <set attribute="bgpaintdefault" value="rectangle(0,0,100%,100%,#d0d0d0,#f0f0f0,vertical)" />
+      <set attribute="bgpaintdefaultfirst" value="roundedrectangle(0,0,50,100%,25,25,#d0d0d0,#f0f0f0,vertical);rectangle(25,0,100%,100%,#d0d0d0,#f0f0f0,vertical)" />
+      <set attribute="bgpaintdefaultlast" value="roundedrectangle(0,0,100%,100%,25,25,#d0d0d0,#f0f0f0,vertical);rectangle(0,0,100%-25,100%,#d0d0d0,#f0f0f0,vertical)" />
+      <set attribute="bgpaintdefaultonly" value="roundedrectangle(0,0,100%,100%,25,25,#d0d0d0,#f0f0f0,vertical)" />
+      <set attribute="bgpaintrollover" value="rectangle(0,0,100%,100%,#e9b475,#fefdd3,vertical)" />
+      <set attribute="bgpaintrolloverfirst" value="roundedrectangle(0,0,50,100%,25,25,#e9b475,#fefdd3,vertical);rectangle(25,0,100%,100%,#e9b475,#fefdd3,vertical)" />
+      <set attribute="bgpaintrolloverlast" value="roundedrectangle(0,0,100%,100%,25,25,#e9b475,#fefdd3,vertical);rectangle(0,0,100%-25,100%,#e9b475,#fefdd3,vertical)" />
+      <set attribute="bgpaintrolloveronly" value="roundedrectangle(0,0,100%,100%,25,25,#e9b475,#fefdd3,vertical)" />
+      <set attribute="bgpaintselected" value="rectangle(0,0,100%,100%,#75b4e9,#d3fdfe,vertical)" />
+      <set attribute="bgpaintselectedfirst" value="roundedrectangle(0,0,50,100%,25,25,#75b4e9,#d3fdfe,vertical);rectangle(25,0,100%,100%,#75b4e9,#d3fdfe,vertical)" />
+      <set attribute="bgpaintselectedlast" value="roundedrectangle(0,0,100%,100%,25,25,#75b4e9,#d3fdfe,vertical);rectangle(0,0,100%-25,100%,#75b4e9,#d3fdfe,vertical)" />
+      <set attribute="bgpaintselectedonly" value="roundedrectangle(0,0,100%,100%,25,25,#75b4e9,#d3fdfe,vertical)" />
+      <set attribute="fontselected" value="weight:bold" />
+      <set attribute="foregrounddefault" value="#404040" />
+      <set attribute="foregroundselected" value="#000000" />
+      <set attribute="menuiconvisible" value="false" />
+      <set attribute="bgpaint" value="rectangle(0,10,100%,100%-10,#FFFFFF30);border(0,10,100%,100%-10,#00000030,1)" />
+      <set attribute="padding" value="10" />
+      <set attribute="fxstyleseqtabs" value="cc_buttontabbedline_transparent"/>
+    </tag>
+    <tag name="t:tabbedline" variant="cctl01" >
+      <set attribute="fxstyleseq" value="tabbedline_cctl01"/>
+    </tag>
+    <tag name="t:tabbedlinecontainer" variant="cctl02" >
+      <set attribute="bgpaintdefault" value="rectangle(0,0,100%,100%,#d0d0d0,#f0f0f0,vertical)" />
+      <set attribute="bgpaintdefaultfirst" value="roundedrectangle(0,0,50,100%,25,25,#d0d0d0,#f0f0f0,vertical);rectangle(25,0,100%,100%,#d0d0d0,#f0f0f0,vertical)" />
+      <set attribute="bgpaintdefaultlast" value="roundedrectangle(0,0,100%,100%,25,25,#d0d0d0,#f0f0f0,vertical);rectangle(0,0,100%-25,100%,#d0d0d0,#f0f0f0,vertical)" />
+      <set attribute="bgpaintdefaultonly" value="roundedrectangle(0,0,100%,100%,25,25,#d0d0d0,#f0f0f0,vertical)" />
+      <set attribute="bgpaintrollover" value="rectangle(0,0,100%,100%,#e9b475,#fefdd3,vertical)" />
+      <set attribute="bgpaintrolloverfirst" value="roundedrectangle(0,0,50,100%,25,25,#e9b475,#fefdd3,vertical);rectangle(25,0,100%,100%,#e9b475,#fefdd3,vertical)" />
+      <set attribute="bgpaintrolloverlast" value="roundedrectangle(0,0,100%,100%,25,25,#e9b475,#fefdd3,vertical);rectangle(0,0,100%-25,100%,#e9b475,#fefdd3,vertical)" />
+      <set attribute="bgpaintrolloveronly" value="roundedrectangle(0,0,100%,100%,25,25,#e9b475,#fefdd3,vertical)" />
+      <set attribute="bgpaintselected" value="rectangle(0,0,100%,100%,#804040,#e04040,vertical)" />
+      <set attribute="bgpaintselectedfirst" value="roundedrectangle(0,0,50,100%,25,25,#804040,#e04040,vertical);rectangle(25,0,100%,100%,#804040,#e04040,vertical)" />
+      <set attribute="bgpaintselectedlast" value="roundedrectangle(0,0,100%,100%,25,25,#804040,#e04040,vertical);rectangle(0,0,100%-25,100%,#804040,#e04040,vertical)" />
+      <set attribute="bgpaintselectedonly" value="roundedrectangle(0,0,100%,100%,25,25,#804040,#e04040,vertical)" />
+      <set attribute="fontselected" value="weight:bold" />
+      <set attribute="foregrounddefault" value="#404040" />
+      <set attribute="foregroundselected" value="#F0F0F0" />
+      <set attribute="menuiconvisible" value="false" />
+      <set attribute="bgpaint" value="rectangle(0,10,100%,100%-10,#FFFFFF30);border(0,10,100%,100%-10,#00000030,1)" />
+      <set attribute="padding" value="10" />
+      <set attribute="fxstyleseqtabs" value="cc_buttontabbedline_transparent"/>
+    </tag>
+    <tag name="t:tabbedline" variant="cctl02" >
+      <set attribute="fxstyleseq" value="tabbedline_cctl02"/>
+    </tag>
+    <tag name="t:tabbedlinecontainer" variant="cctl03" >
+      <set attribute="bgpaintdefault" value="image(0,0,/eclntjsfserver/images/tabbedline/tl1_defleft.png&amp;mirrorrtl,lefttop);image(100%,0,/eclntjsfserver/images/tabbedline/tl1_defright.png&amp;mirrorrtl,righttop);image(5,0,100%-22,25,/eclntjsfserver/images/tabbedline/tl1_defmid.png&amp;mirrorrtl,lefttop)" />
+      <set attribute="bgpaintrollover" value="image(0,0,/eclntjsfserver/images/tabbedline/tl1_selleft.png&amp;mirrorrtl,lefttop);image(100%,0,/eclntjsfserver/images/tabbedline/tl1_selright.png&amp;mirrorrtl,righttop);image(5,0,100%-22,25,/eclntjsfserver/images/tabbedline/tl1_selmid.png&amp;mirrorrtl,lefttop)" />
+      <set attribute="bgpaintselected" value="image(0,0,/eclntjsfserver/images/tabbedline/tl1_selleft.png&amp;mirrorrtl,lefttop);image(100%,0,/eclntjsfserver/images/tabbedline/tl1_selright.png&amp;mirrorrtl,righttop);image(5,0,100%-22,25,/eclntjsfserver/images/tabbedline/tl1_selmid.png&amp;mirrorrtl,lefttop)" />
+      <set attribute="tabheight" value="25" />
+      <set attribute="taboverlap" value="7" />
+      <set attribute="menuiconvisible" value="false" />
+      <set attribute="innerbgpaint" value="rectangle(0,10,100%,100%-10,#FFFFFF30)" />
+      <set attribute="fxstyleseqtabs" value="cc_buttontabbedline_transparent"/>
+    </tag>
+    <tag name="t:tabbedline" variant="cctl03" >
+      <set attribute="fxstyleseq" value="tabbedline_cctl03"/>
+    </tag>
+    <tag name="t:tabbedlinecontainer" variant="cctl04" >
+      <set attribute="bgpaintdefault" value="roundedborder(0,0,100%,100,10,10,#00000030,1)" />
+      <set attribute="bgpaintrollover" value="roundedborder(0,0,100%,100,10,10,#FF000030,1)" />
+      <set attribute="bgpaintselected" value="roundedrectangle(0,0,100%,100,10,10,#FFFFFF);roundedborder(0,0,100%,100,10,10,#00000050,1)" />
+      <set attribute="font" value="weight:bold" />
+      <set attribute="fontselected" value="weight:bold" />
+      <set attribute="foregrounddefault" value="#00000060" />
+      <set attribute="foregroundselected" value="#000000" />
+      <set attribute="border" value="#00000030" />
+      <set attribute="padding" value="10" />
+      <set attribute="innerbgpaint" value="rectangle(0,10,100%,100%-10,#FFFFFF30)" />
+      <set attribute="fxstyleseqtabs" value="cc_buttontabbedline_transparent"/>
+    </tag>
+    <tag name="t:tabbedline" variant="cctl04" >
+      <set attribute="fxstyleseq" value="tabbedline_cctl04"/>
+    </tag>
+    <tag name="t:tabbedline" variant="cctl05" >
+      <set attribute="styleseq" value="tabbedline_cctl05"/>
+    </tag>
+    <tag name="t:tabbedline" variant="cctlbreadcrumb01" >
+      <set attribute="fxstyleseq" value="tabbedline_cctlbreadcrumb01"/>
+    </tag>
+    <tag name="t:tabbedlinetab" variant="cctlbreadcrumb01" >
+    </tag>
+    
+    
+    <tag name="t:foldablepane" variant="CC_TITLE_ONLY" >
+      <set attribute="background" value="#00000008" />
+      <set attribute="font" value="size:14" />
+      <set attribute="headerbgpaint" value="line(0,0,100%,0,1,#00000030);rectangle(0,0,100%,50%,#00000020,#00000000,vertical)" />
+      <set attribute="innerpadding" value="top:5;bottom:5" />
+      <set attribute="rowdistance" value="5" />
+      <set attribute="titlepadding" value="0" />
+    </tag>
+    
+    <!--
+        for testing purpose 
+     -->
+    <stylevalue name="ztesttitlebarbackground" value="@titlebarBackground@"/>
+    <stylevalue name="ztesttitlebarbackgroundborder" value="left:2;color:@titlebarBackground@"/>
+    <tag name="t:pane" variant="ztestvariables" >
+        <set attribute="background" value="@titlebarBackground@"/>
+    </tag>
+     
+     
+</style>

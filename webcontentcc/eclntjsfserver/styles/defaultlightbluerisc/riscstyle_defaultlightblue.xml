@@ -1,0 +1,186 @@
+<stylesheet>
+    
+    <var c="Basic colors" n="@baseColorDark@" v="#156589"/>
+    <var c="Basic colors" n="@baseColor@" v="#27a3dd"/>
+    <var c="Basic colors" n="@baseColorLight@" v="#DDDDDD"/>
+    
+    <var c="Basic colors" n="@popupTitleBackground@" v="@baseColorDark@"/>
+    
+    <var n="@textcolor@" v="#404040" />
+    <var n="@containerLightBorderColor@" v="rgba(0,0,0,0.05)"/>
+ 
+    <var n="@gridHeaderBackground@" v="#F0F0F0"/>
+    <var n="@gridHeaderForeground@" v="@textcolor@"/>
+
+    <var n="@buttonBackground@" v="@baseColorLight@"/>
+    <var n="@buttonForeground@" v="@textcolor@"/>
+    <var n="@buttonBorderColor@" v="rgba(0,0,0,0.08)"/>
+    <var n="@buttonFontWeight@" v="bold"/>
+    <var n="@buttonMargin@" v="0 2 2 0"/>
+    <var n="@buttonBoxShadow@" v="2px 2px 2px rgba(0,0,0,0.1)"/>
+    <var n="@buttonVerticalMargin@" v="0 0 2 1"/>
+    <var n="@buttonVerticalBoxShadow@" v="-2px 2px 2px rgba(0,0,0,0.1)"/>
+    
+    <var n="@containerMargin@" v="0 4 4 0"/>
+    <var n="@containerBoxShadow@" v="2px 2px 3px rgba(0,0,0,0.15)"/>
+     
+    <var n="@titlebarBackground@" v="@baseColor@"/>
+    <var n="@ccWorkplaceBackground@" v="#5e696e"/>
+    
+    <var n="@type1Background@" v="@baseColor@"/>
+    <var n="@type1SelectedBackground@" v="@baseColor@"/>
+    <var n="@type1Background90@" v="@baseColor@"/>
+    <var n="@lighttype1Background@" v="@baseColor@"/>
+    <var n="@type1Foreground@" v="#FFFFFF"/>
+    <var n="@type1SelectedForeground@" v="#FFFFFF"/>
+
+    <var n="@type2Background@" v="#FFFFFF"/>
+    <var n="@type2SelectedBackground@" v="#FFFFFF"/>
+    <var n="@type2Background90@" v="#FFFFFF"/>
+    <var n="@lighttype2Background@" v="#FFFFFF"/>
+    <var n="@type2Foreground@" v="@textcolor@"/>
+    <var n="@type2SelectedForeground@" v="@textcolor@"/>
+    
+    <var n="@wpselectorBackground@" v="@baseColorDark@"/>
+    <var n="@wpselectorSelectedBackground@" v="@baseColorDark@"/>
+    <var n="@lightwpselectorBackground@" v="@baseColorDark@"/>
+   
+    <var n="@tabbedLineButtonInsets@" v="3 13 3 13"/>
+    
+    <var n="@tabbedLineBottomBorderSize@" v="3"/>
+    
+    <class n="riscbutton_nofill">
+        <var n="@buttonForeground@" v="@textcolor@"/>
+    </class>
+   
+    <class n="risctabbedline">
+        <risc n="inset" v="0 14 0 14"/>
+        <style n="border" v="0px solid @containerBorderColor@"/>
+        <class n="_button">
+            <risc n="border" v="0 0 @tabbedLineBottomBorderSize@ 0"/>
+            <style n="border" v="0px solid transparent"/>
+            <style n="border-left" v="0px solid transparent"/>
+            <style n="border-right" v="0px solid transparent"/>
+            <style n="border-top" v="0px solid transparent"/>
+            <style n="border-bottom" v="@tabbedLineBottomBorderSize@px solid transparent"/>
+        </class>
+        <class n="_button_selected">
+            <risc n="border" v="0 0 @tabbedLineBottomBorderSize@ 0"/>
+            <style n="border" v="0px solid transparent"/>
+            <style n="border-left" v="0px solid transparent"/>
+            <style n="border-right" v="0px solid transparent"/>
+            <style n="border-top" v="0px solid transparent"/>
+            <style n="border-bottom" v="@tabbedLineBottomBorderSize@px solid @baseColor@"/>
+        </class>
+    </class>
+
+    <class n="tabbedline_cctl01">
+        <var n="@tabbedLineBottomBorderSize@" v="0"/>
+    </class>
+    <class n="tabbedline_cctl02">
+        <var n="@tabbedLineBottomBorderSize@" v="0"/>
+    </class>
+    
+    <class n="risctabbedpane">
+        <risc n="border" v="1 1 1 1"/>
+        <style n="border" v="1px solid @containerBorderColor@"/>
+        <class n="_content">
+            <risc n="border" v="1 0 0 0"/>
+            <style n="border" v="0px solid @containerBorderColor@"/>
+            <style n="border-top" v="1px solid @containerLightBorderColor@"/>
+        </class>
+    </class>
+    <class n="risctabbedpane_flat">
+        <risc n="border" v="0 0 0 0"/>
+        <style n="border" v="0px solid @containerBorderColor@"/>
+    </class>
+
+    <class n="cc_wp_workpageselector">
+        <risc n="inset" v="0 4 0 0"/>
+        <var n="@tabbedLineButtonInsets@" v="@buttonInsets@"/>
+    </class>
+    
+    <class n="riscfoldablepane">
+        <risc n="_imageOpened" v="eclntjsfserver/images/iconssvg/foldablepane_up_16x16.svg"/>
+        <risc n="_imageClosed" v="eclntjsfserver/images/iconssvg/foldablepane_down_16x16.svg"/>
+        <style n="border" v="0px solid @containerBorderColor@"/>
+        <class n="_toppane">
+            <risc n="inset" v="5 14 5 14"/>
+            <risc n="border" v="1 1 1 1"/>
+            <style n="border" v="1px solid @containerBorderColor@"/>
+            <style n="border-bottom" v="1px solid @containerLightBorderColor@"/>
+        </class>
+        <class n="_toppane_closed">
+            <risc n="inset" v="5 14 5 14"/>
+            <risc n="border" v="1 1 1 1"/>
+            <style n="border" v="1px solid @containerBorderColor@"/>
+            <style n="border-bottom" v="1px solid @containerBorderColor@"/>
+        </class>
+        <class n="_titlebutton">
+            <var n="@buttonForeground@" v="@textcolor@"/>
+        </class>
+    </class>
+    <class n="riscfoldablepane_flat">
+        <class n="_toppane">
+            <risc n="border" v="0 0 0 0"/>
+            <style n="border" v="0px solid @containerBorderColor@"/>
+        </class>
+        <class n="_toppane_closed">
+            <risc n="border" v="0 0 0 0"/>
+            <style n="border" v="0px solid @containerBorderColor@"/>
+        </class>
+    </class>
+    <class n="riscfoldablepane_light">
+    </class>
+    <class n="riscfoldablepane_lightflat">
+        <class n="_toppane">
+            <risc n="border" v="0 0 0 0"/>
+            <style n="border" v="0px solid @containerBorderColor@"/>
+        </class>
+        <class n="_toppane_closed">
+            <risc n="border" v="0 0 0 0"/>
+            <style n="border" v="0px solid @containerBorderColor@"/>
+        </class>
+    </class>
+
+    <class n="riscfoldableverticalpane">
+        <risc n="border" v="1 1 1 1"/>
+        <style n="border" v="1px solid @containerBorderColor@"/>
+        <class n="_toppane">
+            <risc n="inset" v="6 3 10 4"/>
+            <style n="border" v="0px solid #C0C0C0"/>
+            <style n="background" v="@type2Background90@"/>
+        </class>
+        <class n="_titlebutton">
+            <var n="@buttonForeground@" v="@textcolor@"/>
+        </class>
+        <class n="_contentpane">
+            <risc n="border" v="0 0 0 1"/>
+            <style n="border" v="0px solid @containerBorderColor@"/>
+            <style n="border-left" v="1px solid @containerLightBorderColor@"/>
+            <style n="border-left-width" v="1px"/> <!-- override! -->
+        </class>
+    </class>
+        
+
+<!--    <class n="rischeaderlabel">
+        <risc n="border" v="0 0 2 0"/>
+        <style n="border-bottom" v="2px solid @baseColor@"/>
+    </class>-->
+            
+    <class n="riscbutton">
+        <style n="border-radius" v="0px"/>
+    </class>
+
+    <class n="risclink">
+        <var n="@buttonFontWeight@" v="bold"/>
+        <var n="@buttonForeground@" v="@baseColorDark@"/>
+    </class>
+                                    
+                                                                                                            
+<!--    <class n="cc_pane_titlebar">
+        <risc n="border" v="0 0 3 0"/>
+        <style n="border-bottom" v="3px solid @baseColorDark@"/>
+    </class>-->
+    
+</stylesheet>

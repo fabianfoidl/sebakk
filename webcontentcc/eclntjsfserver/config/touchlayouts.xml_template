@@ -1,0 +1,17 @@
+<!--
+    Definition of individual keyboard layouts.
+-->
+<touchlayouts>
+    <!--
+    <layout name="name1"
+            line0="1;2;3;4;5;6;7;8;9;0;DEL/2/@clearlast@;C/1/@clearall@"
+            line1="@null@;Q;W;E;R;T;Z;U;I;O;P;Ü;#$§/1/@layout:spec@"
+            line2="@null@;A;S;D;F;G;H;J;K;L;Ö;Ä;ABC/1/@layout:abc@"
+            line3="@null@/2;Y;X;C;V;B;N;M;,;.;-"
+            line4="Shift/2/@shift@;Space/8/ ;@null@;OK/2/@ok@"/>
+    <layout name="name2"
+            line1="..."
+            line2="..."
+            line3="..."/>
+    -->
+</touchlayouts>

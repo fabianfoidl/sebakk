@@ -1,0 +1,23 @@
+<stylesheet>
+
+    <var n="@gridHeaderBackground@" v="#6c8c84"/>
+    <var n="@gridHeaderForeground@" v="#F0F0F0"/>
+    <var n="@shadedBackground@" v="#FFFFFF"/>
+    <var n="@ccWorkplaceBackground@" v="linear-gradient(to bottom, #abab98,#6b6b58)"/>
+    <var n="@popupTitleBackground@" v="#152324"/>0
+    <var n="@titlebarBackground@" v="#466964"/>
+    <var n="@rowbodypaneBackground@" v="#e7e7de"/>
+    <var n="@rowbodypaneBorderWidth@" v="1"/>
+    <var n="@type1Background@" v="#466964"/>
+    <var n="@type1SelectedBackground@" v="#466964"/>
+    <var n="@type1Background90@" v="#466964"/>
+    <var n="@lighttype1Background@" v="#668984"/>
+    <var n="@type2Background@" v="#6c8c84"/>
+    <var n="@type2SelectedBackground@" v="#6c8c84"/>
+    <var n="@type2Background90@" v="#6c8c84"/>
+    <var n="@lighttype2Background@" v="#8cAcA4"/>
+    <var n="@wpselectorBackground@" v="#2d4340"/>
+    <var n="@wpselectorSelectedBackground@" v="#2d4340"/>
+    <var n="@lightwpselectorBackground@" v="#4d6360"/>
+    
+</stylesheet>

@@ -1,0 +1,14 @@
+<javamacros>
+    <!--
+    Each macro to be listed as javamacro-tag, class pointing to the
+    classname. The class must implement IMacro. The class must support
+    a constructor wihtout parameters.
+    
+    Pay attention: an instance of the class is created both at runtime
+    and at design time (by the Layout Editor processing. Consequence:
+    the class should be as simples as possible and its instanciation
+    should not depend from a lot of pre-conditions.
+    
+    <javamacro classname="com.xyz.xyz.XYZMacro"/>
+    -->
+</javamacros>

@@ -1,0 +1,7 @@
+<style extends="defaultrisc" >
+    <stylevalue name="ccWorkplaceIntroButtonColor" value="#404040"/>
+    <tag name="splitpane" variant="WP_TILESPLITPANE">
+        <set attribute="dividercolor" value="#00000000"/>
+        <set attribute="dividersize" value="3"/>
+    </tag>
+</style>

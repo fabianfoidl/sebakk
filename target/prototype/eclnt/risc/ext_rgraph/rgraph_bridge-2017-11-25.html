@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RGRAPH Bridge</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="libraries-2017-11-25/RGraph.common.core.js"></script>
+<script src="libraries-2017-11-25/RGraph.common.dynamic.js"></script>   <!-- Just needed for dynamic features -->
+
+<script src="libraries-2017-11-25/RGraph.common.annotate.js"></script>  <!-- Just needed for annotating -->
+<script src="libraries-2017-11-25/RGraph.common.context.js"></script>   <!-- Just needed for context menus -->
+<script src="libraries-2017-11-25/RGraph.common.effects.js"></script>   <!-- Just needed for visual effects -->
+<script src="libraries-2017-11-25/RGraph.common.key.js"></script>       <!-- Just needed for keys -->
+<script src="libraries-2017-11-25/RGraph.common.resizing.js"></script>  <!-- Just needed for resizing -->
+<script src="libraries-2017-11-25/RGraph.common.tooltips.js"></script>  <!-- Just needed for tooltips -->
+<script src="libraries-2017-11-25/RGraph.common.zoom.js"></script>      <!-- Just needed for zoom -->
+
+<script src="libraries-2017-11-25/RGraph.bar.js"></script>              <!-- Just needed for Bar charts -->
+<script src="libraries-2017-11-25/RGraph.bipolar.js"></script>          <!-- Just needed for Bi-polar charts -->
+<script src="libraries-2017-11-25/RGraph.fuel.js"></script>             <!-- Just needed for Fuel charts -->
+<script src="libraries-2017-11-25/RGraph.funnel.js"></script>           <!-- Just needed for Funnel charts -->
+<script src="libraries-2017-11-25/RGraph.gantt.js"></script>            <!-- Just needed for Gantt charts -->
+<script src="libraries-2017-11-25/RGraph.gauge.js"></script>            <!-- Just needed for Gauge charts -->
+<script src="libraries-2017-11-25/RGraph.hbar.js"></script>             <!-- Just needed for Horizontal Bar charts -->
+<script src="libraries-2017-11-25/RGraph.hprogress.js"></script>        <!-- Just needed for Horizontal Progress bars -->
+<script src="libraries-2017-11-25/RGraph.line.js"></script>             <!-- Just needed for Line charts -->
+<script src="libraries-2017-11-25/RGraph.meter.js"></script>            <!-- Just needed for Meter charts -->
+<script src="libraries-2017-11-25/RGraph.odo.js"></script>              <!-- Just needed for Odometers -->
+<script src="libraries-2017-11-25/RGraph.pie.js"></script>              <!-- Just needed for Pie AND Donut charts -->
+<script src="libraries-2017-11-25/RGraph.radar.js"></script>            <!-- Just needed for Radar charts -->
+<script src="libraries-2017-11-25/RGraph.rose.js"></script>             <!-- Just needed for Rose charts -->
+<script src="libraries-2017-11-25/RGraph.rscatter.js"></script>         <!-- Just needed for Rscatter charts -->
+<script src="libraries-2017-11-25/RGraph.scatter.js"></script>          <!-- Just needed for Scatter charts -->
+<script src="libraries-2017-11-25/RGraph.semicircularprogress.js"></script> <!-- Just needed for SemiCircular Progress charts charts -->
+<script src="libraries-2017-11-25/RGraph.thermometer.js"></script>      <!-- Just needed for Thermometer charts -->
+<script src="libraries-2017-11-25/RGraph.vprogress.js"></script>        <!-- Just needed for Vertical Progress bars -->
+<script src="libraries-2017-11-25/RGraph.waterfall.js"></script>        <!-- Just needed for Waterfall charts  -->
+
+<script src="rgraph_bridge-2017-11-25.js"></script>
+
+<script>
+var m_bufferId = null;
+var m_canvas = null;            
+var m_chart = null;
+var m_config = null;
+var m_lastTimeResized = 0;
+var m_lastHeight = -1;
+var m_lastWidth = -1;
+function passConfig(config)
+{
+    var b = document.body;
+    // remove all content
+    {
+        while (b.firstChild) 
+            b.removeChild(b.firstChild);
+    }
+    var width = window.innerWidth;
+    if (width < 200) width = 200;
+    var height = window.innerHeight;
+    if (height < 200) width = 200;
+    m_config = config;
+    cvs = document.createElement("canvas");
+    cvs.id = "cvs";
+    b.appendChild(cvs);
+    cvs.style.width = width + "px";
+    cvs.style.height = height + "px";
+    cvs.width = width;
+    cvs.height = height;
+    m_lastWidth = width;
+    m_lastHeight = height;
+    setTimeout(drawCanvas,1);
+}
+function _reactOnClick(e,shape)
+{
+    try
+    {
+        var index = shape["index"];
+        var dataset = shape["dataset"];
+        if (dataset == null) dataset = 0;
+        var callBack = window.parent.RISCRGraphCallBack[m_bufferId];
+        callBack.callBackPointSelection(dataset,index);
+    }
+    catch (t) {}
+}
+function drawCanvas()
+{
+    try
+    {
+        if (m_config != null)
+        {
+            m_config.id = "cvs";
+            // add event
+            var options = m_config.options;
+            if (options == null)
+            {
+                options = new Object();
+                m_config.options = options;
+            }
+            options.eventsClick = _reactOnClick;
+            // create graphics
+            var rgraph = null;
+            if (m_config.rgraphType == "Gauge") rgraph = new RGraph.Gauge(m_config);
+            else if (m_config.rgraphType == "Fuel") rgraph = new RGraph.Fuel(m_config);
+            else if (m_config.rgraphType == "HProgress") rgraph = new RGraph.HProgress(m_config);
+            else if (m_config.rgraphType == "Meter") rgraph = new RGraph.Meter(m_config);
+            else if (m_config.rgraphType == "Odometer") rgraph = new RGraph.Odometer(m_config);
+            else if (m_config.rgraphType == "SemiCircularProgress") rgraph = new RGraph.SemiCircularProgress(m_config);
+            else if (m_config.rgraphType == "Thermometer") rgraph = new RGraph.Thermometer(m_config);
+            else if (m_config.rgraphType == "VProgress") rgraph = new RGraph.VProgress(m_config);
+            else if (m_config.rgraphType == "Bar") rgraph = new RGraph.Bar(m_config);
+            else if (m_config.rgraphType == "Line") rgraph = new RGraph.Line(m_config);
+            else if (m_config.rgraphType == "Pie") rgraph = new RGraph.Pie(m_config);
+            else if (m_config.rgraphType == "Bipolar") rgraph = new RGraph.Bipolar(m_config);
+            else if (m_config.rgraphType == "Funnel") rgraph = new RGraph.Funnel(m_config);
+            else if (m_config.rgraphType == "Gantt") rgraph = new RGraph.Gantt(m_config);
+            else if (m_config.rgraphType == "HBar") rgraph = new RGraph.HBar(m_config);
+            else if (m_config.rgraphType == "Radar") rgraph = new RGraph.Radar(m_config);
+            else if (m_config.rgraphType == "Rose") rgraph = new RGraph.Rose(m_config);
+            else if (m_config.rgraphType == "RScatter") rgraph = new RGraph.RScatter(m_config);
+            else if (m_config.rgraphType == "Scatter") rgraph = new RGraph.Scatter(m_config);
+            else if (m_config.rgraphType == "Waterfall") rgraph = new RGraph.Waterfall(m_config);
+            // execute drawing
+            if (rgraph != null)
+            {
+                var method = m_config.regraphMethod;
+                if (method == null) method = "draw";
+                rgraph[method]();
+            }
+        }
+    }
+    catch (t) {}
+}
+function startup()
+{
+    var url = document.location.href;
+    var index = url.indexOf("?");
+    m_bufferId = url.substring(index+1);
+        var configString = window.parent.RISCRGraphBuffer[m_bufferId];
+    var config = JSON.parse(configString);
+    passConfig(config);
+}
+function reactOnResize()
+{
+    var b = document.body;
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    if (m_lastHeight == height && m_lastWidth == width) return;
+    var now = (new Date()).getTime();
+    if (now - m_lastTimeResized > 500)
+    {
+        passConfig(m_config);
+        m_lastTimeResized = now;
+        m_lastWidth = width;
+        m_lastHeight = height;
+    }
+    else
+    {
+        setTimeout(function() {reactOnResize();},100);
+    }
+}
+</script>
+    </head>
+    
+    <body style="padding:0px;margin:0px;overflow: hidden;width:100%;height:100%" 
+          onload="startup();"
+          onresize="reactOnResize();">
+    </body>
+</html>

@@ -1,0 +1,219 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="libraries20181114/jsQR.js"></script>
+  
+<script type="text/javascript">
+    
+var m_startupFinished = false;
+var m_scanDelay = 2000;
+
+/**
+ * This method is called if the IFRAMECONFIGURATION attribute is changed.
+ */
+function ccReactOnNewConfigurationFromServerProvided()
+{
+    if (m_startupFinished == false)
+        return;
+    var command = readConfigurationFromServer();
+    if (command != null)
+    {
+        processConfigurationFromServer(command);
+    }
+}
+         
+function startup()
+{
+    m_startupFinished = true;
+    ccReactOnNewConfigurationFromServerProvided();
+}
+
+function processConfigurationFromServer(command)
+{
+    var cv = decodeComplexValue(command);
+    var scandelay = cv["scandelay"];
+    if (scandelay != null)
+    {
+        m_scanDelay = decodeNumber(scandelay,0);
+    }
+}
+
+/*
+ * The page is called via ext_iframeinclude_ccexampe/example.html?XXX with
+ * XXX being a buffer id to access information from the IFRAMEINCLUDE component.
+ */
+function readConfigurationFromServer()
+{
+    var url = document.location.href;
+    var index = url.indexOf("?");
+    var bufferId = url.substring(index+1);
+    var info = window.parent.RISCIframeIncludeBuffer[bufferId];
+    return info;
+}
+
+/*
+ * The cc-processing provides a callback object to send strings to the server side.
+ */
+function readCallback()
+{
+    var url = document.location.href;
+    var index = url.indexOf("?");
+    var bufferId = url.substring(index+1);
+    var result = window.parent.RISCIframeIncludeBuffer["CALLBACK_"+bufferId];
+    return result;
+}
+
+function reactOnUnload()
+{  
+}
+
+var m_lastProcessedHexData = null;
+var m_lastProcessedTimeStamp = 0;
+
+function _processCallback(code)
+{
+    if (code != null)
+    {
+        var now = new Date().getTime();
+        var hexData = encodeHexData(code.binaryData);
+        if (hexData != m_lastProcessedHexData || 
+            m_scanDelay > 0 && now - m_lastProcessedTimeStamp >= m_scanDelay)
+        {
+            var callback = readCallback();
+            callback.callback(hexData);
+            m_lastProcessedHexData = hexData;
+            m_lastProcessedTimeStamp = new Date().getTime();
+        }
+    }
+    else
+    {
+        m_lastProcessedHexData = null;
+    }
+};
+
+function encodeHexData(bytes)
+{
+    var a = new Array();
+    for (var i=0; i<bytes.length; i++)
+    {
+        var c = bytes[i].toString(16);
+        if (c.length == 0) c = "00";
+        if (c.length == 1) c = "0" + c;
+        a.push(c);
+    }
+    return a.join("");
+};
+
+function decodeComplexValue(value)
+{
+    if (value == null) return null;
+    var vResult = new Array();
+    var vCols = decodeCSV(value);
+    for (var i=0; i<vCols.length; i++)
+    {
+        var vCol = vCols[i];
+        var vIndex = vCol.indexOf(":");
+        if (vIndex <= 0) continue;
+        var vLeft = vCol.substring(0,vIndex);
+        var vRight = vCol.substring(vIndex+1);
+        vResult[vLeft] = vRight;
+    }
+    return vResult;
+};
+
+function decodeCSV(value)
+{
+    var result = value.split(";");
+    for (var i=0; i<result.length; i++)
+    {
+        result[i] = result[i].replace(/\\x3B/g,";");
+    }
+    return result;
+};
+
+function decodeNumber(vString,vDefaultNumber)
+{
+    try
+    {
+        if (vString == null) return vDefaultNumber;
+        var result = parseFloat(vString);
+        if (result == null) return vDefaultNumber;
+        if (isNaN(result)) return vDefaultNumber;
+        return result;
+    }
+    catch (exc)
+    {
+        return vDefaultNumber;
+    }
+};
+
+/*
+ * Optional implementation of drag/drop interface: if DROPRECEIVE is defined then
+ * the following methods are called - if they are implemented.
+ */
+function ccNotifyDragOver(x,y,dragInfo) { document.getElementById("SOMEOUTPUT").innerHTML = "DRAGOVER: " + x + "/" + y + "/" + dragInfo; }
+function ccNotifyDragLeave() { document.getElementById("SOMEOUTPUT").innerHTML = "DRAGLEAVE: -"; }
+function ccNotifyDragEnd() { document.getElementById("SOMEOUTPUT").innerHTML = "DRAGEND: -"; }
+function ccNotifyDrop() { document.getElementById("SOMEOUTPUT").innerHTML = "DROP: -"; }
+
+</script>
+
+</head>
+<body onload="startup();" 
+      onunload="reactOnUnload();" 
+      style="margin-top:0; margin-left:0;margin-bottom:0;margin-right:0;overflow:hidden">
+  <canvas id="canvas" hidden></canvas>
+  <script>
+    // -------------------------------------------------------------------------
+    // SLIGHTLY MODIFIED SCRIPT FROM TEST PAGE  - begin
+    // -------------------------------------------------------------------------
+    var video = document.createElement("video");
+    var canvasElement = document.getElementById("canvas");
+    var canvas = canvasElement.getContext("2d");
+
+    function drawLine(begin, end, color) {
+      canvas.beginPath();
+      canvas.moveTo(begin.x, begin.y);
+      canvas.lineTo(end.x, end.y);
+      canvas.lineWidth = 4;
+      canvas.strokeStyle = color;
+      canvas.stroke();
+    }
+
+    // Use facingMode: environment to attemt to get the front camera on phones
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+      video.srcObject = stream;
+      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+      video.play();
+      requestAnimationFrame(tick);
+    });
+
+    function tick() {
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        canvasElement.hidden = false;
+        // canvasElement.height = video.videoHeight;
+        // canvasElement.width = video.videoWidth;
+        canvasElement.height = window.innerHeight;
+        canvasElement.width = window.innerWidth;
+        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+        var code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert"
+        });
+        if (code) 
+        {
+          drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
+          drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
+          drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
+          drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+          _processCallback(code);
+        } 
+      }
+      requestAnimationFrame(tick);
+    }
+    // -------------------------------------------------------------------------
+    // SLIGHTLY MODIFIED SCRIPT FROM TEST PAGE  - end
+    // -------------------------------------------------------------------------
+  </script>
+</body>
+</html>

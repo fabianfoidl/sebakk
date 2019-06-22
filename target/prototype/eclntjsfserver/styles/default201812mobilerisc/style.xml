@@ -1,0 +1,9 @@
+<style extends="default201812risc">
+    <tag name="t:pane" variant="WP_PANEAROUNDWORKPAGECONTAINER" extendsparenttag="true">
+        <set attribute="shadow" value="null!"/>
+        <set attribute="background" value="#FFFFFF18"/>
+    </tag>
+    <tag name="pane" variant="WP_WORKPLACE" extendstag="pane" extendsparenttag="true">
+        <set attribute="padding" value="top:0;bottom:0;left:0;right:0"/>
+    </tag>
+</style>
