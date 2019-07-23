@@ -1,8 +1,19 @@
 package managedbeans;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.mgt.RealmSecurityManager;
+import org.apache.shiro.realm.Realm;
+import org.apache.shiro.subject.Subject;
 import org.eclnt.editor.annotations.CCGenClass;
 import org.eclnt.jsfserver.elements.impl.FIXGRIDItem;
 import org.eclnt.jsfserver.elements.impl.FIXGRIDListBinding;
@@ -10,6 +21,7 @@ import org.eclnt.jsfserver.pagebean.PageBean;
 
 import db.Database;
 import db.User;
+import login.CCAuthorizingRealm;
 
 @CCGenClass (expressionBase="#{d.LoginUI}")
 
@@ -146,6 +158,7 @@ public class LoginUI
 	}
 	
 	public void onLogin(javax.faces.event.ActionEvent event) {
+		Collection<Realm> realms = ((RealmSecurityManager)SecurityUtils.getSecurityManager()).getRealms();
 		m_showSuperuser = false;
 		m_showShiftLeader = false;
     	m_showOperator1 = false;
@@ -153,9 +166,40 @@ public class LoginUI
 		System.out.println("Try onLogin...");
 		m_showIfTrue = true;
     	if (m_user != null && m_user != "" && m_pass != null && m_pass != "") {
+    		AuthenticationToken token = new UsernamePasswordToken(m_user, m_pass);
+    		Subject currentUser = SecurityUtils.getSubject();
+    		for (Realm realm : realms) {
+    			if (realm instanceof CCAuthorizingRealm) {
+    				// see @ https://stackoverflow.com/questions/22706632/how-to-clear-cache-for-a-subject-in-shiro
+    				((CCAuthorizingRealm) realm).clearCachedAuthorizationInfo(currentUser.getPrincipals());
+    			}
+    		}
     		
+    		//ccar.clearCachedAuthorizationInfo(currentUser.getPrincipals());
+    		try {
+    			currentUser.login(token);
+    			m_loginText = "Eingeloggt!";
+    			if (currentUser.hasRole(Roles.ADMIN.getDesc())) {
+    				m_showSuperuser = true;
+    			}
+    			if (currentUser.hasRole(Roles.SHIFTLEADER.getDesc())) {
+    				m_showShiftLeader = true;
+    			}
+    			if (currentUser.hasRole(Roles.MACHINE1.getDesc())) {
+    				m_showOperator1 = true;
+    			}
+    			if (currentUser.hasRole(Roles.MACHINE2.getDesc())) {
+    				m_showOperator2 = true;
+    			}
+    		} catch (IncorrectCredentialsException ice) {
+    			m_loginText = "Falsche Zugangsdaten! Ex 1";
+    		} catch (LockedAccountException lae) {
+    			m_loginText = "Falsche Zugangsdaten! Ex 2";
+    		} catch (AuthenticationException ae) {
+    			m_loginText = "Falsche Zugangsdaten! Ex 3";
+    		}
     	} else {
-    		m_loginText = "Falsche Zugangsdaten!";
+    		m_loginText = "Falsche Zugangsdaten! allgemein";
     	}
     	
     	

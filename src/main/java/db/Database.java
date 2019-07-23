@@ -435,6 +435,31 @@ public class Database {
 		return userExists;
 	}
 	
+	public static User getUserByUsername(String username) {
+		PreparedStatement pstmt;
+		ResultSet rs = null;
+		establishConnection();
+		User user = new User();
+		
+		try {
+			pstmt = conn.prepareStatement("select username, password from users where username = ?");
+			pstmt.setString(1, username);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				user.setUsername(rs.getString(1));
+				user.setPassword(rs.getString(2));
+			}
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeConnection();
+		}
+		
+		return user;
+	}
+	
 	
 	
 	

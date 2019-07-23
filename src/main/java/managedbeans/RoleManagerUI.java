@@ -22,7 +22,10 @@ public class RoleManagerUI
     extends PageBean 
     implements Serializable
 {
-    public void onDeleteRole(javax.faces.event.ActionEvent event) {
+
+	private static final long serialVersionUID = 1L;
+	
+	public void onDeleteRole(javax.faces.event.ActionEvent event) {
     	Role role = Database.deleteRole(Integer.parseInt(m_roleItems1.getSelectedItem().getRoleId()));
     	// TODO maybe insert if for safety
     	Statusbar.outputMessageWithPopup("Rolle " + role.getName() + " geloschet...");

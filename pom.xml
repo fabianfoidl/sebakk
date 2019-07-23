@@ -28,6 +28,7 @@
     <properties>
         <!-- This is the CaptainCasa version to be used. -->
         <cc.version>20190618</cc.version>
+        <shiro.version>1.3.2</shiro.version>
     </properties>
     
 	<dependencies>
@@ -103,7 +104,62 @@
 		    <artifactId>derby</artifactId>
 		    <version>10.14.1.0</version>
 		</dependency>
+		
+		<!-- Shiro Dependencies -->
+		<!-- Logging API + implementation: -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.21</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.7</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Shiro dependencies: -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+
+        <!-- Stormpath support for quick Realm deployment: -->
+        <!-- <dependency>
+            <groupId>com.stormpath.shiro</groupId>
+            <artifactId>stormpath-shiro-core</artifactId>
+            <version>0.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.stormpath.sdk</groupId>
+            <artifactId>stormpath-sdk-httpclient</artifactId>
+            <version>1.0.4</version>
+            <scope>runtime</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+		</dependency>
 	</dependencies>
+	
+
+	
 	
     
 	<build>
@@ -152,6 +208,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
+					<outputDirectory>C:\EnterpriseClientRISC\server\tomcat\webapps\</outputDirectory>
 					<webResources>
 						<resource>
 							<directory>webcontentcc</directory>
