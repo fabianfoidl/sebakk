@@ -1,14 +1,28 @@
 package managedbeans;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.eclnt.editor.annotations.CCGenClass;
 import org.eclnt.jsfserver.elements.impl.FIXGRIDItem;
 import org.eclnt.jsfserver.elements.impl.FIXGRIDListBinding;
 import org.eclnt.jsfserver.pagebean.PageBean;
+import org.keycloak.authorization.client.AuthzClient;
+import org.keycloak.authorization.client.representation.TokenIntrospectionResponse;
+import org.keycloak.authorization.client.util.HttpResponseException;
+import org.keycloak.representations.AccessToken.Access;
+import org.keycloak.representations.AccessTokenResponse;
+import org.keycloak.representations.idm.authorization.AuthorizationRequest;
+import org.keycloak.representations.idm.authorization.AuthorizationResponse;
+import org.keycloak.representations.idm.authorization.Permission;
+import org.keycloak.representations.idm.authorization.PermissionRequest;
 
 import db.Database;
 import db.User;
@@ -155,6 +169,46 @@ public class LoginUI
 		System.out.println("Try onLogin...");
 		m_showIfTrue = true;
     	if (m_user != null && m_user != "" && m_pass != null && m_pass != "") {
+    		try {
+    			AuthzClient authzClient = AuthzClient.create();
+//        		AccessTokenResponse response = authzClient.obtainAccessToken(m_user, m_pass);
+//    			String token = authzClient.obtainAccessToken(m_user, m_pass).getToken();
+//    			System.out.println(token);
+    			
+    			AuthorizationRequest request = new AuthorizationRequest();
+//    			request.addPermission("machine1");  // kann auskommentiert werden, wenn ueberprueft werden soll, ob eine Berechtigung fuer Ressource machine1 existiert
+    			
+    			AuthorizationResponse response = authzClient.authorization(m_user, m_pass).authorize(request);
+    			String rpt = response.getToken();
+    			System.out.println("Token: " + rpt);
+    			
+    			TokenIntrospectionResponse requestingPartyToken = authzClient.protection().introspectRequestingPartyToken(rpt);
+    			
+    			for (Permission granted : requestingPartyToken.getPermissions()) {
+    				System.out.println(granted);
+    				m_loginText = "Eingeloggt!";
+    				if (Roles.MACHINE1.getDesc().equals(granted.getResourceName())) {
+    					m_showOperator1 = true;
+    				}
+    				if (Roles.MACHINE2.getDesc().equals(granted.getResourceName())) {
+    					m_showOperator2 = true;
+    				}
+    				if (Roles.SHIFTLEADER.getDesc().equals(granted.getResourceName())) {
+    					m_showShiftLeader = true;
+    				}
+    				if (Roles.ADMIN.getDesc().equals(granted.getResourceName())) {
+    					m_showSuperuser = true;
+    				}
+    			}
+    			
+    		} catch (HttpResponseException ex) {
+    			if (ex.getStatusCode() == 401) {
+    				m_loginText = "Falsche Zugangsdaten!";
+    			}
+    		} catch (Exception ex) {
+    			ex.printStackTrace();
+    			m_loginText = "Bitte Zugangsdaten ueberpruefen.";
+    		}
     		
     	} else {
     		m_loginText = "Falsche Zugangsdaten!";
@@ -162,7 +216,6 @@ public class LoginUI
     	
     	
     }
-	
 	
     // ------------------------------------------------------------------------
     // inner classes

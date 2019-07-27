@@ -1,0 +1,12 @@
+{
+  "realm": "CCRealm",
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "prototype",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "c3bd2f56-5bcc-4ef4-ad2b-f1770e04a4ed"
+  },
+  "confidential-port": 0,
+  "policy-enforcer": {}
+}
