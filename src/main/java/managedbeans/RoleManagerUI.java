@@ -27,7 +27,6 @@ public class RoleManagerUI
 	
 	public void onDeleteRole(javax.faces.event.ActionEvent event) {
     	Role role = Database.deleteRole(Integer.parseInt(m_roleItems1.getSelectedItem().getRoleId()));
-    	// TODO maybe insert if for safety
     	Statusbar.outputMessageWithPopup("Rolle " + role.getName() + " geloschet...");
     	m_roleItems1.getItems().remove(m_roleItems1.getSelectedItem());
     }
@@ -48,11 +47,12 @@ public class RoleManagerUI
     	ri.setRoleId(String.valueOf(id));
     	ri.setRoleName(m_newRole);
     	m_roleItems1.getItems().add(ri);
+    	Statusbar.outputMessage("Neue Rolle " + m_newRole + " erfolgreich eingefuegt.");
     }
 
     public void onNewUser(javax.faces.event.ActionEvent event) {
-    	Integer id = Database.insertNewUser(new User(null, m_newUser, null, null));
-    	// TODO: insert new user in vvb directly
+    	Integer id = Database.insertNewUser(new User(null, m_newUser, m_newUser, m_newUserPassword));
+    	Statusbar.outputMessage("Neuer User " + m_newUser + " erfolgreich eingefuegt.");
     }
 
     String m_newRole;
@@ -62,6 +62,10 @@ public class RoleManagerUI
     String m_newUser;
     public String getNewUser() { return m_newUser; }
     public void setNewUser(String value) { this.m_newUser = value; }
+    
+    String m_newUserPassword;
+    public String getNewUserPassword() { return m_newUserPassword; }
+    public void setNewUserPassword(String value) { this.m_newUserPassword = value; }
 
 
 	String m_user;
@@ -168,11 +172,11 @@ public class RoleManagerUI
     			// if drag to assigned roles
     			if (gridTo.equals(m_roleItems2)) {
     				Integer updatedRows = Database.assignRole(m_user, ri.getRoleId());
-    				Statusbar.outputMessage("Updated Rows: " + updatedRows);
+    				Statusbar.outputMessage("Aktualisierte Berechtigungen: " + updatedRows);
     				// else if drag to not assigned roles
     			} else if (gridTo.equals(m_roleItems1)) {
     				Integer updatedRows = Database.deassignRole(m_user, ri.getRoleId());
-    				Statusbar.outputMessage("Updated Rows: " + updatedRows);
+    				Statusbar.outputMessage("Aktualisierte Berechtigungen: " + updatedRows);
     			}
     		}
 			gridFrom.getItems().remove(ri);

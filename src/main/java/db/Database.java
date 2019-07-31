@@ -27,7 +27,6 @@ public class Database {
 			Driver derbyEmbeddedDriver = new EmbeddedDriver();
 			DriverManager.registerDriver(derbyEmbeddedDriver);
 			conn = DriverManager.getConnection(url);
-			//conn.setAutoCommit(false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,7 +43,6 @@ public class Database {
 	
 	public static void createDbAndinsertTestData() {
 		
-		PreparedStatement pstmt;
 		Statement stmt;
 		String createRolesSQL = "create table roles (id integer not null generated always as identity (start with 1, increment by 1), name varchar(30) not null, constraint primary_key1 primary key (id))";
 		String createUserSQL = "create table users (id integer not null generated always as identity (start with 1, increment by 1), name varchar(100) not null, username varchar(30) not null, password varchar(30) not null, constraint primary_key2 primary key (id))";
@@ -54,13 +52,8 @@ public class Database {
 			Driver derbyEmbeddedDriver = new EmbeddedDriver();
 			DriverManager.registerDriver(derbyEmbeddedDriver);
 			conn = DriverManager.getConnection("jdbc:derby:testdb4;create=true");
-			//conn.setAutoCommit(false);
 			
 			stmt = conn.createStatement();
-			//stmt.execute("DROP TABLE IF EXISTS roles");
-			//stmt.execute("DROP TABLE IF EXISTS user");
-			//stmt.execute("DROP TABLE IF EXISTS assignedRoles");
-			//conn.commit();
 			
 			DatabaseMetaData dbmd = conn.getMetaData();
 			ResultSet rs = dbmd.getTables(null, "APP", "ROLES", null);
@@ -101,7 +94,6 @@ public class Database {
 			stmt.executeUpdate("INSERT INTO users (name, username, password) values ('Fabian Foidl', 'fabian', 'fabian')");
 			
 			stmt.executeUpdate("INSERT INTO assignedRoles (userid, role) values (1, 1)");
-			//conn.commit();
 			
 			System.out.println("inserting data ok...");
 			conn.close();
@@ -167,8 +159,10 @@ public class Database {
 		establishConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("insert into users (name) values (?)");
+			pstmt = conn.prepareStatement("insert into users (name, username, password) values (?,?,?)");
 			pstmt.setString(1, user.getName());
+			pstmt.setString(2, user.getUsername());
+			pstmt.setString(3, user.getPassword());
 			pstmt.executeUpdate();
 			conn.close();
 		} catch (Exception e)  {
@@ -460,99 +454,4 @@ public class Database {
 		return user;
 	}
 	
-	
-	
-	
-	// Derby test methods
-
-	@Deprecated
-	public static void establishDBConnection() {
-		Connection conn = null;
-		PreparedStatement pstmt;
-		Statement stmt;
-		ResultSet rs = null;
-		String createSQL = "create table person ("
-			      + "id integer not null generated always as"
-			      + " identity (start with 1, increment by 1),   "
-			      + "name varchar(30) not null, email varchar(30), phone varchar(10),"
-			      + "constraint primary_key primary key (id))";
-		try {
-			Driver derbyEmbeddedDriver = new EmbeddedDriver();
-			DriverManager.registerDriver(derbyEmbeddedDriver);
-			conn = DriverManager.getConnection("jdbc:derby:testdb1;create=true", "user123", "pass123");
-			conn.setAutoCommit(false);
-			stmt = conn.createStatement();
-			stmt.execute(createSQL);
-			
-			pstmt = conn.prepareStatement("insert into person (name,email,phone) values(?,?,?)");
-	        pstmt.setString(1, "Hagar the Horrible");
-	        pstmt.setString(2, "hagar@somewhere.com");
-	        pstmt.setString(3, "1234567890");
-	        pstmt.executeUpdate();
-	        
-	        rs = stmt.executeQuery("select * from person");
-	        while (rs.next()) {
-	        	System.out.printf("%d %s %s %s\n",
-	            rs.getInt(1), rs.getString(2),
-	            rs.getString(3), rs.getString(4));
-	         }
-	        
-		} catch (Exception e) {
-			
-		}
-	}
-	
-   public void testDerby() {
-      Connection conn = null;
-      PreparedStatement pstmt;
-      Statement stmt;
-      ResultSet rs = null;
-      String createSQL = "create table person ("
-      + "id integer not null generated always as"
-      + " identity (start with 1, increment by 1),   "
-      + "name varchar(30) not null, email varchar(30), phone varchar(10),"
-      + "constraint primary_key primary key (id))";
-
-      try {
-         Driver derbyEmbeddedDriver = new EmbeddedDriver();
-         DriverManager.registerDriver(derbyEmbeddedDriver);
-         conn = DriverManager.getConnection("jdbc:derby:testdb1;create=true", "user123", "pass123");
-         conn.setAutoCommit(false);
-         stmt = conn.createStatement();
-         stmt.execute(createSQL);
-
-         pstmt = conn.prepareStatement("insert into person (name,email,phone) values(?,?,?)");
-         pstmt.setString(1, "Hagar the Horrible");
-         pstmt.setString(2, "hagar@somewhere.com");
-         pstmt.setString(3, "1234567890");
-         pstmt.executeUpdate();
-
-         rs = stmt.executeQuery("select * from person");
-         while (rs.next()) {
-            System.out.printf("%d %s %s %s\n",
-            rs.getInt(1), rs.getString(2),
-            rs.getString(3), rs.getString(4));
-         }
-
-         stmt.execute("drop table person");
-
-         conn.commit();
-
-      } catch (SQLException ex) {
-         System.out.println("in connection" + ex);
-      }
-
-      try {
-         DriverManager.getConnection
-            ("jdbc:derby:;shutdown=true");
-      } catch (SQLException ex) {
-         if (((ex.getErrorCode() == 50000) &&
-            ("XJ015".equals(ex.getSQLState())))) {
-               System.out.println("Derby shut down normally");
-         } else {
-            System.err.println("Derby did not shut down normally");
-            System.err.println(ex.getMessage());
-         }
-      }
-   }
 }

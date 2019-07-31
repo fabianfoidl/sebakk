@@ -170,12 +170,10 @@ public class LoginUI
     		Subject currentUser = SecurityUtils.getSubject();
     		for (Realm realm : realms) {
     			if (realm instanceof CCAuthorizingRealm) {
-    				// see @ https://stackoverflow.com/questions/22706632/how-to-clear-cache-for-a-subject-in-shiro
     				((CCAuthorizingRealm) realm).clearCachedAuthorizationInfo(currentUser.getPrincipals());
     			}
     		}
     		
-    		//ccar.clearCachedAuthorizationInfo(currentUser.getPrincipals());
     		try {
     			currentUser.login(token);
     			m_loginText = "Eingeloggt!";
