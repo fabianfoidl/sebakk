@@ -167,8 +167,10 @@ public class Database {
 		establishConnection();
 		
 		try {
-			pstmt = conn.prepareStatement("insert into users (name) values (?)");
+			pstmt = conn.prepareStatement("insert into users (name, username, password) values (?,?,?)");
 			pstmt.setString(1, user.getName());
+			pstmt.setString(2, user.getUsername());
+			pstmt.setString(3, user.getPassword());
 			pstmt.executeUpdate();
 			conn.close();
 		} catch (Exception e)  {
