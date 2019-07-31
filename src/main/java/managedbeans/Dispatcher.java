@@ -40,13 +40,6 @@ public class Dispatcher extends WorkpageDispatcher
     {
         // add any implementation...
     	
-    	
-    	try {
-    		 Class.forName( "login.CCLoginModule" );
-    		} catch( ClassNotFoundException e ) {
-    		 System.out.println("Klasse nicht da...");
-    		}
-    	
     	if(!dbinit) {
     		System.out.println("setting up database...");
     		database = new Database();

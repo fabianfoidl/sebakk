@@ -171,13 +171,9 @@ public class LoginUI
     	if (m_user != null && m_user != "" && m_pass != null && m_pass != "") {
     		try {
     			AuthzClient authzClient = AuthzClient.create();
-//        		AccessTokenResponse response = authzClient.obtainAccessToken(m_user, m_pass);
-//    			String token = authzClient.obtainAccessToken(m_user, m_pass).getToken();
-//    			System.out.println(token);
     			
     			AuthorizationRequest request = new AuthorizationRequest();
-//    			request.addPermission("machine1");  // kann auskommentiert werden, wenn ueberprueft werden soll, ob eine Berechtigung fuer Ressource machine1 existiert
-    			
+
     			AuthorizationResponse response = authzClient.authorization(m_user, m_pass).authorize(request);
     			String rpt = response.getToken();
     			System.out.println("Token: " + rpt);
