@@ -1,4 +1,0 @@
-<style extends="defaultrisc" >
-    <stylevalue name="ccLightBorderColor" value="#0000000A"/>
-    <stylevalue name="ccWorkplaceIntroButtonColor" value="#156589"/>
-</style>
